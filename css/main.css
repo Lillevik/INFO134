@@ -3,6 +3,7 @@ html, body{
 	margin: 0;
 	background: lightgray;
 }
+
 .menu{
 	text-align: center;
 	background: black;
@@ -10,6 +11,7 @@ html, body{
 	height: 11%;
 
 }
+
 .navItem{
 	display: inline-block;
 	width: 100px;
@@ -17,6 +19,7 @@ html, body{
 	margin-top: 5px;
 	
 }
+
 main{
 	width: 1100px;
 	margin: auto;
@@ -25,14 +28,11 @@ main{
 
 .infoPane{
 	width: 24%;
-	display: inline-block;
+	float: left;
+	padding: 5px;
 	
 	text-align: center;
 }
-
-
-
-
 
 .film{
 	height: 200px;
@@ -45,4 +45,12 @@ main{
 	height: 70%;
 	width: 100%; 
 	overflow: hidden;
+}
+
+a{
+	color: lime;
+	text-decoration: none;
+}
+a:hover{
+	color: white;
 }
