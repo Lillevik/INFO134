@@ -6,14 +6,14 @@ html, body{
 .menu{
 	text-align: center;
 	background: black;
-	color: white;
+	color: lime;
 	height: 11%;
 
 }
 .navItem{
 	display: inline-block;
 	width: 100px;
-	border: 1px solid white;
+	border: 1px solid lime;
 	margin-top: 5px;
 	
 }
