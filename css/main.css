@@ -4,6 +4,11 @@ html, body{
 	background: lightgray;
 }
 
+text, p, label, span, input, li, a, time, h1, h2, h3{
+	font-size: 12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 .menu{
 	text-align: center;
 	background: black;
@@ -19,6 +24,7 @@ html, body{
 .navItem{
 	float:left;
 	width: 100px;
+	padding:3px;
 	border: 1px solid lime; /* lime? really? */
 	border-radius:2px;
 	margin:2px;
@@ -35,25 +41,43 @@ main{
 	width: 1100px;
 	margin: auto;
 	overflow: auto;
+	max-width: 100%;
 }
 
-.infoPane{
-	width: 24%;
-	float: left;
+.info-pane{
+	width: 100%;
 	padding: 5px;
-	text-align: center;
+}
+
+.info-header-wrap{
+	width: 100%;
+	display: block;
+	overflow: auto;
+}
+.info-header{
+	float: left;
+}
+
+#last-available{
+	width: 100%;
+	padding: 5px;
+
 }
 
 .film{
-	height: 200px;
-	overflow: auto;
+	display: inline-block;
+	width: 260px;
 	padding-bottom: 10px;
 	background: gray;
+	border: 1px solid silver;
+	border-radius:2px;
+	margin: 2px;
+	height:200px;
+	overflow: hidden;
 }
 
 .filmPic{
-	height: 70%;
-	width: 100%; 
+	max-width: 100%;
 	overflow: hidden;
 }
 
@@ -92,6 +116,33 @@ a:hover{
 	width:20%;
 	height:100%;
 	float: right;
+}
+
+@media (max-width:1120px){
+	main{
+		width: 810px;
+	}
+}
+
+@media (max-width:820px){
+	main{
+		width: 540px;
+	}
+}
+
+
+@media (max-width:550px){
+	main{
+		width: 400px;
+	}
+
+	.film{
+		width: 100%;
+	}
+	.filmPic{
+		display: block;
+		margin:0 auto;
+	}
 }
 
 
