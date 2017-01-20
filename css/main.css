@@ -8,16 +8,13 @@ html, body{
 	text-align: center;
 	background: black;
 	color: lime;
-	height: 11%;
-
 }
 
 .navItem{
 	display: inline-block;
 	width: 100px;
 	border: 1px solid lime;
-	margin-top: 5px;
-	
+	margin:5px;
 }
 
 main{
@@ -30,7 +27,6 @@ main{
 	width: 24%;
 	float: left;
 	padding: 5px;
-	
 	text-align: center;
 }
 
@@ -53,4 +49,39 @@ a{
 }
 a:hover{
 	color: white;
+}
+
+#search-wrapper{
+	border: 1px solid silver;
+	border-radius:1px;
+	float: right;
+	background-color:white;
+	height:20px;
+	width:250px;
+}
+
+#search-field{
+	-webkit-appearance:value;
+	-moz-appearance:value;
+	appearance:value;
+	border: none;
+	width:80%;
+	height:100%;
+	float:left;
+}
+
+#search-button{
+	-webkit-appearance:value;
+	-moz-appearance:value;
+	appearance:value;
+	border: none;
+	width:20%;
+	height:100%;
+	float: right;
+}
+
+.right-menu-item{
+	float:right;
+	margin:5px;
+	list-style: none;
 }
