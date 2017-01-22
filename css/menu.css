@@ -1,0 +1,89 @@
+body{
+    margin-top:26px;
+}
+
+header{
+    width: 100vw;
+    background: #333;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+}
+
+nav{
+    width: 1100px;
+    text-align: center;
+    color: lime;
+    overflow: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+text, p, label, span, input, li, a, time, h1, h2, h3{
+    font-size: 12px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#menu-list{
+    padding:0;
+    margin:0;
+}
+
+.navItem{
+    float:left;
+    width: 100px;
+    padding:3px;
+    border: 1px solid lime; /* lime? really? */
+    border-radius:2px;
+    margin:2px;
+    list-style: none;
+}
+
+.right-menu-item{
+    float:right;
+    margin:2px;
+    list-style: none;
+}
+
+#search-wrapper{
+    border: 1px solid silver;
+    border-radius:1px;
+    float: right;
+    background-color:white;
+    height:20px;
+    width:250px;
+    margin:0px;
+}
+
+a{
+    color: lime;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}
+
+#search-field{
+    -webkit-appearance:value;
+    -moz-appearance:value;
+    appearance:value;
+    border: none;
+    width:80%;
+    height:100%;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+#search-button{
+    -webkit-appearance:value;
+    -moz-appearance:value;
+    appearance:value;
+    border: none;
+    width:20%;
+    height:100%;
+    float: right;
+    padding:0;
+    margin:0;
+}

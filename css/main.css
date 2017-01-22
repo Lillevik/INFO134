@@ -9,34 +9,6 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.menu{
-	text-align: center;
-	background: black;
-	color: lime;
-	overflow: auto;
-}
-
-#menu-list{
-	padding:0;
-	margin:0;
-}
-
-.navItem{
-	float:left;
-	width: 100px;
-	padding:3px;
-	border: 1px solid lime; /* lime? really? */
-	border-radius:2px;
-	margin:2px;
-	list-style: none;
-}
-
-.right-menu-item{
-	float:right;
-	margin:2px;
-	list-style: none;
-}
-
 main{
 	width: 1100px;
 	margin: auto;
@@ -79,43 +51,6 @@ main{
 .filmPic{
 	max-width: 100%;
 	overflow: hidden;
-}
-
-a{
-	color: lime;
-	text-decoration: none;
-}
-a:hover{
-	color: white;
-}
-
-#search-wrapper{
-	border: 1px solid silver;
-	border-radius:1px;
-	float: right;
-	background-color:white;
-	height:20px;
-	width:250px;
-}
-
-#search-field{
-	-webkit-appearance:value;
-	-moz-appearance:value;
-	appearance:value;
-	border: none;
-	width:80%;
-	height:100%;
-	float:left;
-}
-
-#search-button{
-	-webkit-appearance:value;
-	-moz-appearance:value;
-	appearance:value;
-	border: none;
-	width:20%;
-	height:100%;
-	float: right;
 }
 
 @media (max-width:1120px){
