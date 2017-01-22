@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/search.css">
+    <link rel="stylesheet" type="text/css" href="./css/menu.css">
     <title>Search results</title>
 </head>
 <body>
+    <header>
+        <nav class="menu">
+            <ul id="menu-list">
+                <li class="navItem"><a href="">Home</a></li>
+                <li class="navItem"><a href="">Top</a></li>
+                <li class="navItem"><a href="">About</a></li>
+                <li class="right-menu-item">
+                    <form action="./search.html" id="search-wrapper">
+                        <input id="search-field" type="text" name="search-field" placeholder="Search here">
+                        <input type="submit" id="search-button" value="Search">
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
         <section id="search-info">
-            <h3>You searched for: "Some search input"</h3>
+            <h3>You searched for: <span id="search-input">"Some search input"</span></h3>
             <p>Number of results: 7</p>
         </section>
 
@@ -86,4 +103,23 @@
 
     </main>
 </body>
+
+<script>
+    function getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+        if (!results) return '';
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var url_param = getParameterByName('search-field');
+    if(url_param != ''){
+        document.getElementById('search-input').innerHTML = url_param;
+    }
+</script>
 </html>

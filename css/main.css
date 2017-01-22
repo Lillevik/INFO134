@@ -53,15 +53,6 @@ main{
 	overflow: hidden;
 }
 
-#search-wrapper{
-	border: 1px solid silver;
-	border-radius:1px;
-	float: right;
-	background-color:white;
-	height:20px;
-	width:250px;
-}
-
 @media (max-width:1120px){
 	main{
 		width: 810px;
