@@ -32,12 +32,15 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
 
 .navItem{
     float:left;
-    width: 100px;
-    padding:3px;
-    border: 1px solid lime; /* lime? really? */
-    border-radius:2px;
-    margin:2px;
+    padding:5px;
+    margin:5px;
     list-style: none;
+}
+.navItem:hover{
+    background: lightblue;
+    boder: 1px solid lightblue;
+    border-radius: 3px;
+
 }
 
 .right-menu-item{
@@ -57,11 +60,15 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
 }
 
 a{
-    color: lime;
+    color: white;
     text-decoration: none;
 }
 a:hover{
-    color: white;
+    color: black;
+    background: lightblue;
+}
+.menuLink{
+    padding: 5px;
 }
 
 #search-field{
