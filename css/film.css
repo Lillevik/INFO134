@@ -41,6 +41,12 @@ iframe{
 	float: left;
 	padding: 10px;
 }
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
 .author{
 	color: black;
 }
