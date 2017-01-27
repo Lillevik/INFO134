@@ -133,12 +133,11 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
     z-index: 999999;
     position: fixed;
     top:37px;
-    left:100vw;
-    right:0;
+    right:-200px;
     background-color:#4948f6;
     min-width: 200px;
     max-width: 100vw;
-    transition: left 0.5s;
+    transition: right 0.7s;
 }
 
 #mobile-menu-list{
@@ -170,13 +169,20 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
 
 
 .open{
-    left:calc(100vw - 200px);
+    right:0;
     -webkit-box-shadow: -15px 0 22px -10px rgba(0,0,0,0.75);
     -moz-box-shadow: -15px 0 22px -10px rgba(0,0,0,0.75);
     box-shadow: -15px 0 22px -10px rgba(0,0,0,0.75);
     border-left: 1px solid #333;
-    transition: left 0.5s;
+    transition: right 0.7s;
+}
 
+@-webkit-keyframes slide{
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
 }
 
 @media(max-width: 800px){
