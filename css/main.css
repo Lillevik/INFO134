@@ -54,8 +54,16 @@ main{
 	max-width: 100%;
 	max-height: calc(100% - 10px);
 	display: block;
-	padding:5px;
+	margin: auto;
 	overflow: hidden;
+}
+.filmTittel{
+	text-decoration: none;
+	padding-left: 1em;
+	color: black;
+}
+.film:hover .filmTittel{
+	color: white;
 }
 
 @media (max-width:1120px){
