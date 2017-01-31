@@ -8,21 +8,34 @@
 	<link rel="stylesheet" type="text/css" href="css/film.css">
 	<link rel="icon" href="./images/film.png">
 	<!-- Icon made by Chanut is Industries from www.flaticon.com -->
+
+	<script src="https://use.fontawesome.com/db87107c26.js"></script>
+	<script src="./javascript/jquery.js" type="text/javascript"></script>
+	<script src="./javascript/menu.js" type="text/javascript"></script>
 </head>
 <body>
 	<header>
 		<nav class="menu">
-			<ul id="menu-list">
+		<a href="index.html" id="logo-link"><img id="logo" src="./images/film.png"></a>
+		
+		<div id="mobile-wrapper">
+			<form action="./search.html" id="search-wrapper">
+				<input id="search-field" type="text" name="search-field" placeholder="Search here">
+				<input type="submit" id="search-button" value="Search">
+			</form>
+			<i onclick="show_menu()" id="drop-down" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+		</div>
+			<ul class="menu-list">
 				<li class="navItem"><a class="menuLink" href="./">Home</a></li>
 				<li class="navItem"><a class="menuLink" href="">Top</a></li>
 				<li class="navItem"><a class="menuLink" href="">About</a></li>
-				<li class="right-menu-item">
-					<div id="search-wrapper">
-						<input id="search-field" type="text" name="search-field" placeholder="Search here">
-						<button id="search-button">Search</button>
-					</div>
+				<li class="right-menu-item"> 
+					<ul>
+						<li class="navItem"><a class="menuLink" href="./">abc123</a></li>
+						<li class="navItem"><a class="menuLink" href="./">Logout</a></li>
+					</ul>
 				</li>
-			</ul>
+			</ul>			
 		</nav>
 	</header>
 
