@@ -1,14 +1,16 @@
 html, body{
 	padding: 0;
 	margin: 0;
-	background: lightgray;
+	background: #F2F2F2;
 }
 
 text, p, label, span, input, li, a, time, h1, h2, h3{
 	font-size: 12px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+.filmLink{
+	text-decoration: none;
+}
 main{
 	width: 1100px;
 	margin: auto;
@@ -27,6 +29,7 @@ main{
 	display: block;
 	overflow: auto;
 }
+
 .info-header{
 	float: left;
 }
@@ -41,20 +44,32 @@ main{
 	display: inline-block;
 	width: 260px;
 	padding-bottom: 10px;
-	background: gray;
+	background: #0C5FC4;
 	border: 1px solid silver;
 	border-radius:2px;
 	margin: 2px;
 	height:200px;
 	overflow: hidden;
 }
-
+.filmDivPic{
+	background: black;
+}
 .filmPic{
 	max-width: 100%;
 	max-height: calc(100% - 10px);
 	display: block;
-	padding:5px;
+	margin: auto;
 	overflow: hidden;
+}
+
+.filmTittel{
+	text-decoration: none;
+	padding-left: 1em;
+	color: #F2F2F2;
+	font-weight: bold;
+}
+.film:hover .filmTittel{
+	color: white;
 }
 
 @media (max-width:1120px){
