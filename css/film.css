@@ -2,7 +2,7 @@
 
 .filmSideDiv{
 	margin-top: 1em;
-	height: 80%;
+	
 	border-radius: 10px;
 }
 .filmSideTitle{
@@ -10,19 +10,44 @@
 	padding-top: 1em;
 	font-size: 24px;
 }
+.mediaWrapper{
+	height: 100%;
+	width: 50%;
+	float: left;
+	overflow: hidden;
+}
+iframe{
+	max-height: 100%;
+	max-width: 100%;
+	height: 300px;
+	min-width: 100%;
+	display: block;
+	margin: auto;
+}
+.slideShow{
+	background: black;
+	width: 100%;
+	height: 50%;
+}
 
 .filmSidePic{
-	width: 45%;
-	border: 3px solid silver;
-	border-radius: 10px;
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
 }
+
 .filmSideInfo{
-	width: 50%;
-	float: right;
-	border: 3px solid silver;
-	border-radius: 10px;
-	padding: 1em;
+	width: calc(50% - 20px);
+	float: left;
+	padding: 10px;
 }
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
 .author{
 	color: black;
 }
@@ -31,16 +56,12 @@
 	main{
 		width: 810px;
 	}
-	.filmSidePic{
-		width: calc(100% - 10px);
-	}
 	.filmSideInfo{
-		width: calc(100% - 15px);
-		padding: 0;
-		float: left;
+		width: calc(100% - 20px);
+		padding: 10px;
 	}
-	.filmSideInfo p{
-		padding: 1em;
+	.mediaWrapper{
+		width: 100%;
 	}
 }
 
@@ -58,9 +79,5 @@
 
 	.film{
 		width: 100%;
-	}
-	.filmPic{
-		display: block;
-		margin:0 auto;
 	}
 }
