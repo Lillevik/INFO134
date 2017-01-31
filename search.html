@@ -14,34 +14,30 @@
     <title>Search results</title>
 </head>
 <body>
-<header>
-    <nav class="menu">
-        <ul id="menu-list">
-            <li id="logo-list-item"><a href="#"><img id="logo" src="./images/film.png"></a></li>
-            <li class="navItem"><a class="menuLink" href="./">Home</a></li>
-            <li class="navItem"><a class="menuLink" href="">Top</a></li>
-            <li class="navItem"><a class="menuLink" href="">About</a></li>
-            <li class="right-menu-item">
-                <form action="./search.html" id="search-wrapper">
-                    <input id="search-field" type="text" name="search-field" placeholder="Search here">
-                    <input type="submit" id="search-button" value="Search">
-                </form>
-            </li>
-            <li class="right-menu-item" id="drop-down"><i onclick="show_menu()" class="fa fa-bars fa-2x" aria-hidden="true"></i></li>
-        </ul>
-    </nav>
-    <nav class="mobile-navigation">
-        <ul id="mobile-menu-list">
-            <li class="mobile-menu-item">Home</li>
-            <li class="mobile-menu-item">Top</li>
-            <li class="mobile-menu-item">About</li>
-        </ul>
-        <ul class="mobile-menu-list-bottom">
-            <li class="mobile-menu-item">abc123</li>
-            <li class="mobile-menu-item">Logout</li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav class="menu">
+        <a href="index.html" id="logo-link"><img id="logo" src="./images/film.png"></a>
+        
+        <div id="mobile-wrapper">
+            <form action="./search.html" id="search-wrapper">
+                <input id="search-field" type="text" name="search-field" placeholder="Search here">
+                <input type="submit" id="search-button" value="Search">
+            </form>
+            <i onclick="show_menu()" id="drop-down" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </div>
+            <ul class="menu-list">
+                <li class="navItem"><a class="menuLink" href="./">Home</a></li>
+                <li class="navItem"><a class="menuLink" href="">Top</a></li>
+                <li class="navItem"><a class="menuLink" href="">About</a></li>
+                <li class="right-menu-item"> 
+                    <ul>
+                        <li class="navItem"><a class="menuLink" href="./">abc123</a></li>
+                        <li class="navItem"><a class="menuLink" href="./">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>           
+        </nav>
+    </header>
 
     <main>
         <section id="search-info">
@@ -125,9 +121,6 @@
 </body>
 
 <script>
-
-
-
     function getSearchQuery(){
         url = window.location.href;
         var input = url.split('?search-field=');
