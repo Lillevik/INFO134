@@ -56,18 +56,19 @@ div.stars {
 	main{
 		width: 810px;
 	}
+	
+}
+
+@media (max-width:820px){
+	main{
+		width: 540px;
+	}
 	.filmSideInfo{
 		width: calc(100% - 20px);
 		padding: 10px;
 	}
 	.mediaWrapper{
 		width: 100%;
-	}
-}
-
-@media (max-width:820px){
-	main{
-		width: 540px;
 	}
 }
 
