@@ -8,7 +8,9 @@ text, p, label, span, input, li, a, time, h1, h2, h3{
 	font-size: 12px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
+.filmLink{
+	text-decoration: none;
+}
 main{
 	width: 1100px;
 	margin: auto;
@@ -49,7 +51,9 @@ main{
 	height:200px;
 	overflow: hidden;
 }
-
+.filmDivPic{
+	background: black;
+}
 .filmPic{
 	max-width: 100%;
 	max-height: calc(100% - 10px);
@@ -57,6 +61,7 @@ main{
 	margin: auto;
 	overflow: hidden;
 }
+
 .filmTittel{
 	text-decoration: none;
 	padding-left: 1em;
