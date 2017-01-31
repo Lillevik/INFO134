@@ -51,10 +51,6 @@ div.stars {
 .author{
 	color: black;
 }
-li{
-	display: inline;
-
-}
 
 @media (max-width:1120px){
 	main{
