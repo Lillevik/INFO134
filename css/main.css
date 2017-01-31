@@ -18,8 +18,13 @@ main{
 }
 
 .info-pane{
-	width: 100%;
+	width: auto;
+	overflow-y: auto;
+    white-space: nowrap;
 	padding: 5px;
+	height: auto;
+	max-width: 90%;
+	margin: 0 auto;
 }
 
 .info-header-wrap{
@@ -31,20 +36,17 @@ main{
 	float: left;
 }
 
-#last-available{
-	width: 100%;
-	padding: 5px;
 
-}
 
 .film{
 	display: inline-block;
+    color: white;
+    text-align: center;
 	width: 260px;
 	padding-bottom: 10px;
 	background: gray;
 	border: 1px solid silver;
 	border-radius:2px;
-	margin: 2px;
 	height:200px;
 	overflow: hidden;
 }
@@ -57,7 +59,7 @@ main{
 	overflow: hidden;
 }
 
-@media (max-width:1120px){
+/*@media (max-width:1120px){
 	main{
 		width: 810px;
 	}
@@ -83,7 +85,7 @@ main{
 		margin:0 auto;
 	}
 }
-
+*/
 
 
 
