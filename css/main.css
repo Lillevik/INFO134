@@ -1,7 +1,7 @@
 html, body{
 	padding: 0;
 	margin: 0;
-	background: lightgray;
+	background: #F2F2F2;
 }
 
 text, p, label, span, input, li, a, time, h1, h2, h3{
@@ -42,7 +42,7 @@ main{
 	display: inline-block;
 	width: 260px;
 	padding-bottom: 10px;
-	background: gray;
+	background: #0C5FC4;
 	border: 1px solid silver;
 	border-radius:2px;
 	margin: 2px;
@@ -60,7 +60,8 @@ main{
 .filmTittel{
 	text-decoration: none;
 	padding-left: 1em;
-	color: black;
+	color: #F2F2F2;
+	font-weight: bold;
 }
 .film:hover .filmTittel{
 	color: white;
