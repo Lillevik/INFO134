@@ -69,10 +69,12 @@ main{
 }
 .filmDivPic{
 	background: black;
+	height: 100%;
+	width: 120%;
 }
 .filmPic{
 	max-width: 100%;
-	max-height: calc(100% - 10px);
+	min-height:100%;
 	display: block;
 	margin: auto;
 	overflow: hidden;
