@@ -81,4 +81,8 @@ div.stars {
 	.film{
 		width: 100%;
 	}
+
+	.slideShow{
+		height: auto;
+	}
 }
