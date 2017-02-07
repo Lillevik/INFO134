@@ -47,6 +47,19 @@ div.stars {
   width: 270px;
   display: inline-block;
 }
+.star{
+	display: none;
+}
+.starLabel{
+	font-size: 24px;
+	color: orange;
+}
+.starLabel:hover:before,
+.starLabel:hover ~ .starLabel:before{
+	content: "\2605";
+	position: absolute;
+
+}
 
 .author{
 	color: black;
