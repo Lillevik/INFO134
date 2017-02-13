@@ -1,7 +1,6 @@
 /**
- * Created by goat on 24/01/17.
+ * Skrevet av kanditat 141.
  */
-
 
 function show_menu(){
     var mobile_nav = $(".menu-list");
