@@ -129,7 +129,6 @@ function display_results(data){
 	}
 
 	for (var i = 0; i < length; i++) {
-		console.log(i);
 		try{
 			var obj = data[i];
 			append_section(parent, obj);
@@ -164,6 +163,9 @@ function append_section(parent, obj){
 	image.src = imageUrl;
 	image.classList.add('search-image')
 
+	var movieLink = document.createElement('a');
+	movieLink.href = "./show_movie.html?id=" + obj.id;
+
 	var title = document.createElement('h3');
 	title.innerHTML = obj.otitle;
 
@@ -172,7 +174,8 @@ function append_section(parent, obj){
 
 
 	imageDiv.appendChild(image);
-	infoSection.appendChild(title);
+	movieLink.appendChild(title)
+	infoSection.appendChild(movieLink);
 	infoSection.appendChild(description);
 	outerSection.appendChild(imageDiv);
 	outerSection.appendChild(infoSection);
@@ -203,7 +206,6 @@ function load_more(amount = 10){
 	if((currentResults.length - currentShown) != 0){
 		var parent = document.getElementById('search-results');
 		for (var i = currentShown; i < imagesToLoad; i++) {
-			console.log(i);
 			append_section(parent, currentResults[i])
 		}
 	}else{
