@@ -10,6 +10,32 @@ main{
     margin: 40px auto 0;
 }
 
+
+summary{
+  outline:none;
+}
+summary:hover{
+    cursor: pointer;
+    background: #ccc;
+}
+
+#advanced-search{
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+td{
+    padding: 5px;
+}
+
+#loadMoreButton{
+    display: block;
+    margin:0 auto;
+    padding:10px;
+    border-radius: 100%;
+    background-color: black;
+    color:white;
+}
+
 #search-info{
     width: 800px;
     display: block;
