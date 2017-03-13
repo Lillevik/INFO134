@@ -33,13 +33,17 @@ function get_multiple_images(id, numberOfImages){
  */
 function append_image(image_url){
 	var image = new Image();
+	var img_element = document.getElementById("movie_image");
+
 	image.src = image_url;
 	image.onload = function() {
 	    // image exists and is loaded
-	    document.body.appendChild(image);
+	    // document.body.appendChild(image);
+		img_element.innerHTML = image;
 	}
 	image.onerror = function() {
 		// image does not exist or did not load properly.
+		console.log("no img");
 	}
 }
 

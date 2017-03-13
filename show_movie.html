@@ -1,47 +1,119 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="utf-8"/>
-  <head>
-    <script type="text/javascript" src="script/object.js"></script>
-    <script type="text/javascript" src="script/genres.js"></script>
-    <script type="text/javascript" src="script/image.js"></script>
-    <script type="text/javascript" src="script/reviews.js"></script>
-    <script type="text/javascript" src="script/query_params.js"></script>
-    <script type="text/javascript" src="script/show_movie.js"></script>
-    <style type="text/css">
-      img{
-        max-height: 150px;
-        max-width: 150px;
-        float: left;
-        margin:10px;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="otitle"></h2>
-	<!-- Alt under er en enkelt formatert tabell som viser all informasjon som er tilgjengelig om denne filmen -->
-    <hr>
-    <h5>Denne siden viser detaljer om en film.</h5>
-    <table id="movie_stat_table" border=1>
-      <caption>Table: Stats from "object"</caption>
-      <tr>
-		<td align="center"><b>Key</b></td><td align="center"><b>Value</b></td>
-      </tr>
-    </table>
+<head>
+  <title>The Intouchables</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/film.css">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <link rel="icon" href="./images/film.png">
+  <!-- Icon made by Chanut is Industries from www.flaticon.com -->
+
+  <script src="https://use.fontawesome.com/db87107c26.js"></script>
+  <script src="./javascript/menu.js" type="text/javascript"></script>
+    <script type="text/javascript" src="javascript/object.js"></script>
+    <script type="text/javascript" src="javascript/genres.js"></script>
+    <script type="text/javascript" src="javascript/image.js"></script>
+    <script type="text/javascript" src="javascript/reviews.js"></script>
+    <script type="text/javascript" src="javascript/query_params.js"></script>
+    <script type="text/javascript" src="javascript/show_movie.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="menu">
+    <a href="index.html" id="logo-link"><img alt="logo" id="logo" src="./images/film.png"></a>
     
-    <table id="genre_stat_table" border=1>
-      <caption>Table: Stats from "object_genre"</caption>
-      <tr>
-		<td align="center"><b>Key</b></td><td align="center"><b>Value</b></td>
-      </tr>
-    </table>
-    
-    <table id="review_stat_table" border=1>
-      <caption>Table: Stats from "reivew"</caption>
-      <tr>
-		<td align="center"><b>Key</b></td><td align="center"><b>Value</b></td>
-      </tr>
-    </table>
-    <h3><a href="review.html?film=">Write review</a></h3>
-  </body>
+    <div id="mobile-wrapper">
+      <form action="./search.html" id="search-wrapper">
+        <input id="search-field" type="text" name="search-field" placeholder="Search here">
+        <input type="submit" id="search-button" value="Search">
+      </form>
+      <i onclick="show_menu()" id="drop-down" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+    </div>
+      <ul class="menu-list">
+        <li class="navItem"><a class="menuLink" href="./">Home</a></li>
+        <li class="navItem"><a class="menuLink" href="">Top</a></li>
+        <li class="navItem"><a class="menuLink" href="">About</a></li>
+        <li class="right-menu-item"> 
+          <ul>
+            <li class="navItem"><a class="menuLink" href="./">abc123</a></li>
+            <li class="navItem"><a class="menuLink" href="./">Logout</a></li>
+          </ul>
+        </li>
+      </ul>     
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Original movie title, and norwegian title -->
+    <section id="main_section">
+      <h2 id="otitle"></h2>
+      <h4 id="ntitle"></h4>
+
+      <!-- Section for media (IMG and trailer) -->
+      <section class="mediaWrapper">
+
+        <!-- Movie Image goes here -->
+        <div class="slideShow">
+          <img alt="picture of the movie" id="movie_image" src="">
+        </div>
+        
+        <!-- Trailer goes here -->
+        <iframe id="movie_trailer" src="https://www.youtube.com/embed/34WIbmXkewU"></iframe>
+      </section>
+      
+
+      <!-- Here is all the textual info of the movie-->
+      <div class="film_info">
+        
+        <!-- Movie rating and button for 'add to list' -->
+        <!-- rating in format of: x.x / x.x            -->
+        <section id="rating_section">
+          <h4 id="rating"></h4>
+          <p>Rating</p>
+          <button id="add_to_list" title="Add movie to your list.">+List</button>  
+        </section>
+
+        <!-- Director(s) -->
+        <section class="small_info" id="directors_section">
+          <h3>Director(s)</h3>
+          <p id="directors"></p>
+        </section>
+
+        <!-- Actor(s) -->
+        <section class="small_info" id="cast_section">
+          <h3>Cast</h3>
+          <p id="cast"></p>
+        </section>
+
+        <!-- INLINE List for Country, Year, Length -->
+        <ul id="CYL_info">
+          <li id="country"></li>
+          <li id="year"></li>
+          <li id="length"></li>
+        </ul>
+
+        <!-- Genres and extras -->
+        <section id="genre_section">
+          <h3 id="genre"></h3>
+          <p id="extras"></p>
+        </section>
+
+        <!-- Summary section -->
+        <section>
+          <h3>Summary</h3>
+          <p id="summary">Den sanne historien om to menn som aldri skulle ha møtt hverandre - De Urørlige er en oppløftende komedie om vennskap, tillit og menneskelige    muligheter.
+
+          Mangemillionæren Philippe er lam fra nakken og ned etter en paragliderulykke, og må leve resten av livet i rullestol. Han bor i luksuriøse omgivelser i Paris og skal ansette en ny pleieassistent. Den eneste av søkerne som skiller seg ut er Driss - den unge mannen som har levert søknaden kun fordi han må vise at han er aktiv arbeidssøker for å beholde trygdepengene. Snart begynner et usannsynlig kameratskap forankret i ærlighet og humor mellom to individer som på overflaten ikke ville hatt noe til felles.
+
+          De Urørlige er basert på en utrolig, men sann historie. Filmen, som er sett av 20 millioner franskmenn, har blitt et internasjonalt fenomen og er den mest inntjenende ikke-engelskspråklige filmen i historien. (Cover)</p>  
+        </section>
+      </div>
+  </section>
+
+  </main>
+</body>
 </html>

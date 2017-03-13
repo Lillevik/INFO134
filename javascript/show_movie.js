@@ -3,18 +3,18 @@ function panic(message) {
     alert(message);
 }
 
-function add_row(table, left, right) {
-    new_row = document.createElement("TR");
-    left_cell = document.createElement("TD");
-    left_cell.appendChild(left);
-    new_row.appendChild(left_cell);
-    
-    right_cell = document.createElement("TD");
-    right_cell.appendChild(right);
-    new_row.appendChild(right_cell);
-    
-    table.appendChild(new_row);
-}
+// function add_row(table, left, right) {
+//    new_row = document.createElement("TR");
+//    left_cell = document.createElement("TD");
+//     left_cell.appendChild(left);
+//     new_row.appendChild(left_cell);
+//    
+//    right_cell = document.createElement("TD");
+//     right_cell.appendChild(right);
+//     new_row.appendChild(right_cell);
+//     
+//     table.appendChild(new_row);
+// }
 
 window.onload = function() {
     query_params = get_query_string_parameters();
@@ -30,6 +30,9 @@ window.onload = function() {
 	return;
     }
     
+    var img_url = get_image_url(movie_object.id);
+    append_image();
+
     // get the genre info (if it exists)
     genre_object = genres_object[query_params.id];
     // get the review info (if it exists)
@@ -38,8 +41,10 @@ window.onload = function() {
     
     // render page
     var title_element = document.getElementById("otitle");
+    var ntitle_element = document.getElementById("ntitle");
     // title_element.appendChild(document.createTextNode(movie_object["otitle"]));    
     title_element.innerHTML = movie_object["otitle"];
+    ntitle_element.innerHTML = movie_object["ntitle"];
     
     // add a "debug-table" on the bottom showing all elements from movie_object
     stats_table = document.getElementById("movie_stat_table");

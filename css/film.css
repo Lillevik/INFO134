@@ -1,15 +1,21 @@
-
-
 .filmSideDiv{
 	margin-top: 1em;
 	
 	border-radius: 10px;
 }
-.filmSideTitle{
+#otitle{
 	text-align: center;
 	padding-top: 1em;
 	font-size: 24px;
+	margin-bottom: 0;
 }
+#ntitle{
+	margin-top: 0;
+	text-align: center;
+	color: darkgray;
+}
+
+/* Styling for Movie Image and tralier */
 .mediaWrapper{
 	height: 100%;
 	width: 50%;
@@ -29,49 +35,37 @@ iframe{
 	width: 100%;
 	height: 50%;
 }
-
-.filmSidePic{
+#movie_image{
 	max-height: 100%;
 	max-width: 100%;
 	display: block;
 	margin: auto;
 }
 
-.filmSideInfo{
+/* Styling for movie textual information*/
+#film_info{
 	width: calc(50% - 20px);
 	float: left;
 	padding: 10px;
 }
-
-div.stars {
-  width: 270px;
-  display: inline-block;
-}
-.star{
-	display: none;
-}
-.starLabel{
-	font-size: 24px;
-	color: orange;
-}
-.starLabel:hover:before,
-.starLabel:hover ~ .starLabel:before{
-	content: "\2605";
-	position: absolute;
-
-}
-
 .author{
 	color: black;
 }
+#CYL_info{
+	padding: 0;
+	margin: 0;
+}
+#CYL_info li{
+	display: inline;
+}
 
+
+/* Responsiveness */
 @media (max-width:1120px){
 	main{
 		width: 810px;
 	}
-	
 }
-
 @media (max-width:820px){
 	main{
 		width: 540px;
@@ -84,17 +78,13 @@ div.stars {
 		width: 100%;
 	}
 }
-
-
 @media (max-width:550px){
 	main{
 		width: 400px;
 	}
-
 	.film{
 		width: 100%;
 	}
-
 	.slideShow{
 		height: auto;
 	}
