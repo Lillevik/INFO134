@@ -1,13 +1,8 @@
-/* Her kan dere implementere en søkefunksjon. For eksempel:
-function search_for_X() {
-}
-*/
-
-/* Her kan dere implementere en display function som viser resulatetene av søket. For eksempel:
-function display_X() {
-}
-*/
+//An array containing movie object from the last search
 var currentResults = []
+
+//An integer of the current shown movies from the current search
+var currentShown = 0;
 
 
 /**
@@ -88,6 +83,7 @@ function advanced_search(title, actor, director, genre, country){
 			results.push(movieObject);
 		}
 	}
+	currentShown = 0;
 	return results;
 }
 
@@ -110,13 +106,15 @@ function search_title(titleQuery, data){
    	return results;
 }
 
-
+/**
+ * This function loops through a list of movie elements
+ * and appends them to the search results container.
+ *
+ * @param {Array} data - A list of movie objects 
+ * @return {void}
+ */
 function display_results(data){
-	console.log(data.length)
-	console.log(data)
 	currentResults = data;
-	
-
 
 	var parent = document.getElementById('search-results');
 	parent.innerHTML = "";
@@ -131,6 +129,7 @@ function display_results(data){
 	}
 
 	for (var i = 0; i < length; i++) {
+		console.log(i);
 		try{
 			var obj = data[i];
 			append_section(parent, obj);
@@ -139,12 +138,19 @@ function display_results(data){
 		}
 		
 	}
+
+	document.getElementById('shown-images').innerHTML = currentShown;
 }
 
 
-
-function append_section(parent, img){
-	var imageUrl = get_image_url(img.id);
+/**
+ * This function appends a section to the given container.
+ *
+ * @param {Element} parent - The container to append to.
+ * @param {Object} obj - A movie object 
+ */
+function append_section(parent, obj){
+	var imageUrl = get_image_url(obj.id);
 	var outerSection = document.createElement('section');
 	outerSection.classList.add('search-item');
 
@@ -159,10 +165,10 @@ function append_section(parent, img){
 	image.classList.add('search-image')
 
 	var title = document.createElement('h3');
-	title.innerHTML = img.otitle;
+	title.innerHTML = obj.otitle;
 
 	var description = document.createElement('p');
-	description.innerHTML = img.description;
+	description.innerHTML = obj.description;
 
 
 	imageDiv.appendChild(image);
@@ -172,32 +178,39 @@ function append_section(parent, img){
 	outerSection.appendChild(infoSection);
 
 	parent.appendChild(outerSection);
-
-	let index = currentResults.indexOf(img);
-	if(index !== -1) {
-		currentResults.splice(index, 1);
-	}
+	currentShown++;
 };
 
-function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertAfter(newNode, referenceNode.nextSibling);
-}
 
-function load_more(amount){
+/**
+ * This function loads more search results, 10 by default
+ * or more if parameter is declared.
+ *
+ * @param {Integer} amount - The amount of results to load.
+ * @return {void}
+ */
+function load_more(amount = 10){
 	var length = null;
-	console.log(currentResults)
-	if(currentResults.length > amount){
+
+	if((currentResults.length - currentShown) > amount){
 		length = amount;
 	}else{
-		length = currentResults.length;
+		length = (currentResults.length - currentShown);
 	}
-	if(currentResults.length != 0){
+
+	var imagesToLoad = (currentShown + length);
+
+	if((currentResults.length - currentShown) != 0){
 		var parent = document.getElementById('search-results');
-		for (var i = 0; i < length; i++) {
+		for (var i = currentShown; i < imagesToLoad; i++) {
+			console.log(i);
 			append_section(parent, currentResults[i])
 		}
+	}else{
+		alert('No more results in this search.');
 	}
-	console.log(currentResults)
+
+	document.getElementById('shown-images').innerHTML = currentShown;
 }
 
 /**
@@ -216,8 +229,10 @@ function do_advanced_search(){
 
 	movies = advanced_search(title, actor, director, genre, country);
 
-	document.getElementById('numberOfResults').innerHTML = movies.length + ' results.';
-
+	var totals = document.querySelectorAll('.numberOfResults');
+	for (var i = 0; i < totals.length; i++) {
+		totals[i].innerHTML = results.length;
+	};
 	display_results(movies);
 }
 
@@ -241,8 +256,10 @@ window.onload = function() {
 
     
 
-	document.getElementById('numberOfResults').innerHTML = results.length + ' results.';
-
+	var totals = document.querySelectorAll('.numberOfResults');
+	for (var i = 0; i < totals.length; i++) {
+		totals[i].innerHTML = results.length;
+	};
 
 	var film_titleTimer = null;
 	var actorTimer = null;
@@ -253,6 +270,8 @@ window.onload = function() {
 
 	var textInputs = document.querySelectorAll('input[type="text"]');
 
+	//Adds eventlistener to all the textinputs in order to listen 
+	//to when changes are made and a search is execute
 	for (var i = 0; i < textInputs.length; i++) {
 			textInputs[i].addEventListener('input',function(){
 				query = this.value;

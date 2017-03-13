@@ -133,6 +133,19 @@ ul{
     margin:2px;
 }
 
+    .menu-list{
+        display: none;
+        height:calc(100vh - 37px);
+        width: 200px;
+        z-index: 9999999;
+        position: fixed;
+        top:42px;
+        right:-2000px;
+        background-color:#4948f6;
+        max-width: 100vw;
+        transition: right 0.7s;
+    }
+
 .open{
     right:0px;
     -webkit-box-shadow: -15px 0 22px -10px rgba(0,0,0,0.75);
@@ -145,15 +158,6 @@ ul{
 
     .menu-list{
         display: block;
-        height:calc(100vh - 37px);
-        width: 200px;
-        z-index: 9999999;
-        position: fixed;
-        top:42px;
-        right:-200px;
-        background-color:#4948f6;
-        max-width: 100vw;
-        transition: right 0.7s;
     }
 
     #drop-down{
