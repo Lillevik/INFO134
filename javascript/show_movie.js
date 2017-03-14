@@ -42,17 +42,22 @@ window.onload = function() {
     // render page
     var title_element = document.getElementById("otitle");
     var ntitle_element = document.getElementById("ntitle");
-    // title_element.appendChild(document.createTextNode(movie_object["otitle"]));    
+    var director_element = document.getElementById("directors");
+    var cast_element = document.getElementById("cast");
+    var country_element = document.getElementById("country");
+    var year_element = document.getElementById("year");
+    var length_element = document.getElementById("length");
+    var summary_element = document.getElementById("summary");
+
+    // Throw them in there
     title_element.innerHTML = movie_object["otitle"];
     ntitle_element.innerHTML = movie_object["ntitle"];
-    
-    // add a "debug-table" on the bottom showing all elements from movie_object
-    stats_table = document.getElementById("movie_stat_table");
-    for (key in movie_object) {
-        left = document.createTextNode(key);
-        right = document.createTextNode(movie_object[key]);
-        add_row(stats_table, left, right);
-    }
+    director_element.innerHTML = movie_object["dir"];
+    cast_element.innerHTML = movie_object["folk"];
+    country_element.innerHTML = movie_object["country"];
+    year_element.innerHTML = movie_object["year"];
+    length_element.innerHTML = movie_object["length"];
+    summary_element.innerHTML = movie_object["description"];
     
     // add a "debug-table" on the bottom showing all genre info
     genre_table = document.getElementById("genre_stat_table");
