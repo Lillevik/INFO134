@@ -1,7 +1,7 @@
-.filmSideDiv{
-	margin-top: 1em;
-	
+#main_section{
+	margin-top: 1em;	
 	border-radius: 10px;
+	display: flex;
 }
 #otitle{
 	text-align: center;
@@ -14,39 +14,34 @@
 	text-align: center;
 	color: darkgray;
 }
-
-/* Styling for Movie Image and tralier */
-.mediaWrapper{
-	height: 100%;
-	width: 50%;
-	float: left;
-	overflow: hidden;
-}
-iframe{
-	max-height: 100%;
-	max-width: 100%;
-	height: 300px;
-	min-width: 100%;
-	display: block;
-	margin: auto;
-}
-.slideShow{
-	background: black;
-	width: 100%;
-	height: 50%;
+/* Image and trailer */
+#media_wrapper{
+	width: 25%;
 }
 #movie_image{
-	max-height: 100%;
-	max-width: 100%;
-	display: block;
+	margin: auto;
+}
+#movie_image img{
 	margin: auto;
 }
 
-/* Styling for movie textual information*/
+/* Information section */
 #film_info{
-	width: calc(50% - 20px);
+	background: lightgray;
+	width: 75%;
 	float: left;
 	padding: 10px;
+}
+
+/* */
+#small_info{
+	display: flex;
+	background: pink;
+	padding: 10px;
+}
+.info_elements{
+	margin: auto;
+	padding: 0;
 }
 .author{
 	color: black;
@@ -54,9 +49,11 @@ iframe{
 #CYL_info{
 	padding: 0;
 	margin: 0;
+	font-weight: bold;
+
 }
 #CYL_info li{
-	display: inline;
+	list-style: none;
 }
 
 

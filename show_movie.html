@@ -50,18 +50,17 @@
 
   <main>
 
+    <h2 id="otitle"></h2>
+    <h4 id="ntitle"></h4>
+    
     <!-- Original movie title, and norwegian title -->
     <section id="main_section">
-      <h2 id="otitle"></h2>
-      <h4 id="ntitle"></h4>
-
+     
       <!-- Section for media (IMG and trailer) -->
-      <section class="mediaWrapper">
+      <section id="media_wrapper">
 
         <!-- Movie Image goes here -->
-        <div class="slideShow">
-          <img alt="picture of the movie" id="movie_image" src="">
-        </div>
+        <div id="movie_image"></div>
         
         <!-- Trailer goes here -->
         <iframe id="movie_trailer" src="https://www.youtube.com/embed/34WIbmXkewU"></iframe>
@@ -69,39 +68,46 @@
       
 
       <!-- Here is all the textual info of the movie-->
-      <div class="film_info">
+      <div id="film_info">
         
-        <!-- Movie rating and button for 'add to list' -->
-        <!-- rating in format of: x.x / x.x            -->
-        <section id="rating_section">
-          <h4 id="rating"></h4>
-          <p>Rating</p>
-          <button id="add_to_list" title="Add movie to your list.">+List</button>  
-        </section>
+        <!-- Flexbox for information that takes little space -->
+        <section id="small_info">
 
-        <!-- Director(s) -->
-        <section class="small_info" id="directors_section">
+          <!-- Movie rating and button for 'add to list' -->
+          <!-- rating in format of: x.x / x.x            -->
+          <section id="rating_section">
+            <h3>Rating</h3>
+            <h4>x</h4>
+            <button id="add_to_list" title="Add movie to your list.">+List</button>  
+          </section>
+
+          <!-- Director(s) -->
+          <div class="info_elements">
           <h3>Director(s)</h3>
           <p id="directors"></p>
-        </section>
+          </div>
 
-        <!-- Actor(s) -->
-        <section class="small_info" id="cast_section">
+          <!-- Actor(s) -->
+          <div class="info_elements">
           <h3>Cast</h3>
           <p id="cast"></p>
-        </section>
+          </div>
 
-        <!-- INLINE List for Country, Year, Length -->
-        <ul id="CYL_info">
-          <li id="country"></li>
-          <li id="year"></li>
-          <li id="length"></li>
-        </ul>
+          <!-- List for Country, Year, Length -->
+          <div class="info_elements">
+          <ul id="CYL_info">
+            <li title="Country Code" id="country"></li>
+            <li title="Year produced" id="year"></li>
+            <li title="Movie length" id="length"></li>
+          </ul>
+          </div>
 
-        <!-- Genres and extras -->
-        <section id="genre_section">
+          <!-- Genres and extras -->
+          <div class="info_elements">
+          <h3>Genre</h3>
           <h3 id="genre"></h3>
           <p id="extras"></p>
+          </div>
         </section>
 
         <!-- Summary section -->

@@ -39,7 +39,7 @@ function append_image(image_url){
 	image.onload = function() {
 	    // image exists and is loaded
 	    // document.body.appendChild(image);
-		img_element.innerHTML = image;
+		img_element.appendChild(image);
 	}
 	image.onerror = function() {
 		// image does not exist or did not load properly.
