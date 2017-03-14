@@ -4,12 +4,13 @@ html, body{
 	background: #F2F2F2;
 }
 
-text, p, label, span, input, li, a, time, h1, h2, h3{
+text, p, label, span, input, li, time, h1, h2, h3{
 	font-size: 12px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .filmLink{
 	text-decoration: none;
+	overflow: auto;
 }
 
 .scroll-for-more{
@@ -22,6 +23,17 @@ main{
 	max-width: 100%;
 	z-index: 999;
 	overflow: hidden;
+}
+
+#routines{
+	width: auto;
+	padding: 5px;
+	height:210px;
+	max-width: 90%;
+	margin: 0 auto;
+	border:1px solid silver;
+	border-radius:2px;
+	box-shadow:0 0 15px #333;
 }
 
 .info-pane{
@@ -38,8 +50,6 @@ main{
 	box-shadow:0 0 15px #333;
 }
 
-
-
 .info-header-wrap{
 	max-width: 90%;
 	display: block;
@@ -50,39 +60,43 @@ main{
 	float: left;
 }
 
-
-
 .film{
 	display: inline-block;
     color: white;
     text-align: center;
 	width: 260px;
-	padding-bottom: 10px;
-	padding-right:10px;
+	padding:0px;
 	background: #0C5FC4;
 	border: 1px solid silver;
 	border-radius:4px;
-	height:200px;
+	height:100%;
 	overflow: hidden;
 	-webkit-box-shadow: 0px 0px 118px -27px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 118px -27px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 118px -27px rgba(0,0,0,0.75);
 }
 .filmDivPic{
-	background: black;
+	background: #333;
+	max-height: calc(100% - 30px);
 	height: 100%;
-	width: 120%;
+	display: flex;
+	justify-content: center;
 }
 .filmPic{
-	max-width: 100%;
-	min-height:100%;
-	display: block;
-	margin: auto;
-	overflow: hidden;
+	max-height:100%;
 }
 
 .filmTittel{
 	text-shadow: 0px 0 10px #333;
+	height:30px;
+	margin:0;
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
