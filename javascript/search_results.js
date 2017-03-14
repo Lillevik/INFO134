@@ -173,7 +173,12 @@ function append_section(parent, obj){
 	title.innerHTML = obj.otitle;
 
 	var description = document.createElement('p');
-	description.innerHTML = obj.description;
+
+	var descriptionString = obj.description;
+	if(descriptionString.length > 500){
+		descriptionString = descriptionString.substring(0,500) + '...';
+	}
+	description.innerHTML = descriptionString;
 
 
 	imageDiv.appendChild(image);
