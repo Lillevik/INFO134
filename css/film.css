@@ -1,77 +1,68 @@
-
-
-.filmSideDiv{
-	margin-top: 1em;
-	
+#main_section{
+	margin-top: 1em;	
 	border-radius: 10px;
+	display: flex;
 }
-.filmSideTitle{
+#otitle{
 	text-align: center;
 	padding-top: 1em;
 	font-size: 24px;
+	margin-bottom: 0;
 }
-.mediaWrapper{
-	height: 100%;
-	width: 50%;
-	float: left;
-	overflow: hidden;
+#ntitle{
+	margin-top: 0;
+	text-align: center;
+	color: darkgray;
 }
-iframe{
-	max-height: 100%;
-	max-width: 100%;
-	height: 300px;
-	min-width: 100%;
-	display: block;
+/* Image and trailer */
+#media_wrapper{
+	width: 25%;
+}
+#movie_image{
 	margin: auto;
 }
-.slideShow{
-	background: black;
-	width: 100%;
-	height: 50%;
-}
-
-.filmSidePic{
-	max-height: 100%;
-	max-width: 100%;
-	display: block;
+#movie_image img{
 	margin: auto;
 }
 
-.filmSideInfo{
-	width: calc(50% - 20px);
+/* Information section */
+#film_info{
+	background: lightgray;
+	width: 75%;
 	float: left;
 	padding: 10px;
 }
 
-div.stars {
-  width: 270px;
-  display: inline-block;
+/* */
+#small_info{
+	display: flex;
+	background: pink;
+	padding: 10px;
 }
-.star{
-	display: none;
+.info_elements{
+	margin: auto;
+	padding: 0;
 }
-.starLabel{
-	font-size: 24px;
-	color: orange;
-}
-.starLabel:hover:before,
-.starLabel:hover ~ .starLabel:before{
-	content: "\2605";
-	position: absolute;
-
-}
-
 .author{
 	color: black;
 }
+#CYL_info{
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
 
+}
+#CYL_info li{
+	list-style: none;
+}
+
+
+/* Responsiveness */
 @media (max-width:1120px){
 	main{
 		width: 810px;
 	}
-	
 }
-
 @media (max-width:820px){
 	main{
 		width: 540px;
@@ -84,17 +75,13 @@ div.stars {
 		width: 100%;
 	}
 }
-
-
 @media (max-width:550px){
 	main{
 		width: 400px;
 	}
-
 	.film{
 		width: 100%;
 	}
-
 	.slideShow{
 		height: auto;
 	}
