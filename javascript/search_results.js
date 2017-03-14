@@ -134,7 +134,6 @@ function display_results(data){
 			append_section(parent, obj);
 		}catch(e){
 			console.log(e);
-			console.log(data[i]);
 		}
 		
 	}
@@ -152,7 +151,6 @@ function display_results(data){
  * @param {Object} obj - A movie object 
  */
 function append_section(parent, obj){
-	var imageUrl = get_image_url(obj.id);
 	var outerSection = document.createElement('section');
 	outerSection.classList.add('search-item');
 
@@ -162,9 +160,7 @@ function append_section(parent, obj){
 	var infoSection = document.createElement('section')
 	infoSection.classList.add('information');
 
-	var image = new Image();
-	image.src = imageUrl;
-	image.classList.add('search-image')
+	get_image_element(obj.id, 'search-image', imageDiv);
 
 	var movieLink = document.createElement('a');
 	movieLink.classList.add('movieLink');
@@ -189,7 +185,6 @@ function append_section(parent, obj){
 	description.innerHTML = descriptionString;
 
 
-	imageDiv.appendChild(image);
 	movieLink.appendChild(title)
 	infoSection.appendChild(movieLink);
 	infoSection.appendChild(description);
@@ -224,8 +219,6 @@ function load_more(amount = 10){
 		for (var i = currentShown; i < imagesToLoad; i++) {
 			append_section(parent, currentResults[i])
 		}
-	}else{
-		alert('No more results in this search.');
 	}
 
 	check_current_shown();
@@ -268,6 +261,22 @@ function check_current_shown(){
 		button.style.display = 'block';
 	}
 }
+
+
+var infiniteScroll = false;
+window.onscroll = function(ev) {
+	if(currentShown < currentResults.length){
+		if(infiniteScroll){
+			if ((window.innerHeight + window.scrollY + 200) >= document.body.offsetHeight) {
+				infiniteScroll = false;
+		    	load_more(10);
+		    	infiniteScroll = true;
+		    }
+		}
+	}
+};
+
+
 
 
 /**
@@ -314,5 +323,20 @@ window.onload = function() {
 			},500);
 		});
 	}
+
+	var toggleInfinite = document.getElementById('toggleInfinite');
+	toggleInfinite.addEventListener('change', function(){
+		if(this.value == 'false'){
+			this.value = 'true';
+			infiniteScroll = true;
+		}else{
+			this.value = 'false';
+			infiniteScroll = false;
+		}
+
+		console.log(this.value)
+		
+
+	});
 }
 

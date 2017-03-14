@@ -8,6 +8,23 @@ function get_image_url(id){
 	return  'https://nelson.uib.no/o/' + num + '/' + id + '.jpg';	
 };
 
+function get_image_element(id, clas, parent){
+	var image = new Image();
+	image.src = get_image_url(id);
+	image.classList.add(clas);
+
+	image.onload = function() {
+		parent.appendChild(image);
+	}
+
+	image.onerror = function() {
+		var errorImage = new Image();
+		errorImage.classList.add(clas);
+		errorImage.src = './images/image-not-found.gif';
+		parent.appendChild(errorImage);
+	}
+}
+
 /**
  * This function returns multiple image urls. 
  *

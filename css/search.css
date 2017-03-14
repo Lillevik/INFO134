@@ -22,14 +22,27 @@ summary:hover{
 #advanced-search{
     border: 1px solid #333;
     border-radius: 2px;
+    margin: 0 auto;
 }
 td{
     padding: 5px;
 }
 
+#submit_search{
+    display:block;
+    padding:5px;
+    border:1px solid silver; 
+    borde-radius:2px;
+    color:white;
+    background-color:#333;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
 #search{
     max-width: 100%;
     width: 1000px;
+    margin:0 auto;
 }
 
 #loadMoreButton{
@@ -72,10 +85,10 @@ td{
 
 #search-box{
     max-width: 100%;
-    margin: 2px auto;
     border-radius: 2px;
     border:1px solid grey;
     display: block;
+    margin: 0 auto;
 }
 
 

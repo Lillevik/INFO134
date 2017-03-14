@@ -209,4 +209,8 @@ ul{
     nav{
         display: flex;
     }
+
+    body{
+        margin-top:42px
+    }
 }
