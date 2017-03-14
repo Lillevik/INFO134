@@ -85,36 +85,5 @@ main{
 	text-shadow: 0px 0 10px #333;
 }
 
-/*@media (max-width:1120px){
-
-	main{
-		width: 810px;
-	}
-}
-
-@media (max-width:820px){
-	main{
-		width: 540px;
-	}
-}
-
-
-@media (max-width:550px){
-	main{
-		width: 400px;
-	}
-
-	.film{
-		width: 100%;
-	}
-	.filmPic{
-		display: block;
-		margin:0 auto;
-	}
-}
-*/
-
-
-
 
 
