@@ -35,6 +35,8 @@ window.onload = function() {
     var year_element = document.getElementById("year");
     var length_element = document.getElementById("length");
     var summary_element = document.getElementById("summary");
+    var genre_element = document.getElementById("genre");
+    var rating_element = document.getElementById("rating")
 
     // Throw them in there
     title_element.innerHTML = movie_object["otitle"];
@@ -45,5 +47,6 @@ window.onload = function() {
     year_element.innerHTML = "Year: " + movie_object["year"];
     length_element.innerHTML = movie_object["length"] + " min";
     summary_element.innerHTML = movie_object["description"];
+    genre_element.innerHTML = genre_object[0];
     document.title = movie["otitle"];
 };
