@@ -133,6 +133,7 @@ function display_results(data){
 			var obj = data[i];
 			append_section(parent, obj);
 		}catch(e){
+			console.log(e);
 			console.log(data[i]);
 		}
 		
@@ -174,10 +175,17 @@ function append_section(parent, obj){
 
 	var description = document.createElement('p');
 
-	var descriptionString = obj.description;
-	if(descriptionString.length > 500){
-		descriptionString = descriptionString.substring(0,500) + '...';
+	var descriptionString = "";
+	try{
+		descriptionString = obj.description;
+
+		if(descriptionString.length > 500){
+			descriptionString = descriptionString.substring(0,500) + '...';
+		}
+	}catch(e){
+
 	}
+	
 	description.innerHTML = descriptionString;
 
 
