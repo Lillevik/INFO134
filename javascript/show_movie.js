@@ -16,6 +16,18 @@ window.onload = function() {
 	panic("Could not retrieve movie_object!");
 	return;
     }
+
+    // FIND THAT MOVIE TRAILER !!!1!
+    var trailer_element = document.getElementById("movie_trailer");
+    if(movie_object["youtube trailer id"].length>0){
+
+        var trailer_url = movie_object["youtube trailer id"];
+        var iframe = document.createElement("iframe");
+        iframe.src = 'https://www.youtube.com/embed/' + trailer_url;
+        trailer_element.appendChild(iframe);
+    } else {
+        trailer_element.innerHTML = "no trailer";
+    }
     
     var img_url = get_image_url(movie_object.id);
     append_image(img_url);
@@ -35,6 +47,8 @@ window.onload = function() {
     var year_element = document.getElementById("year");
     var length_element = document.getElementById("length");
     var summary_element = document.getElementById("summary");
+    var genre_element = document.getElementById("genre");
+    var rating_element = document.getElementById("rating")
 
     // Throw them in there
     title_element.innerHTML = movie_object["otitle"];
@@ -45,5 +59,7 @@ window.onload = function() {
     year_element.innerHTML = "Year: " + movie_object["year"];
     length_element.innerHTML = movie_object["length"] + " min";
     summary_element.innerHTML = movie_object["description"];
-    document.title = movie["otitle"];
+    genre_element.innerHTML = genre_object[0];
+    
+    document.title = movie_object["otitle"];
 };
