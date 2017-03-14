@@ -35,13 +35,15 @@
 
 /* */
 #small_info{
+	background: gray;
 	display: flex;
-	background: pink;
-	padding: 10px;
+	padding: 20px;
 }
 .info_elements{
+	background: lightgray;
 	margin: auto;
-	padding: 0;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .author{
 	color: black;
