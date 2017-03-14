@@ -138,6 +138,8 @@ function display_results(data){
 		
 	}
 
+	check_current_shown();
+
 	document.getElementById('shown-images').innerHTML = currentShown;
 }
 
@@ -164,6 +166,7 @@ function append_section(parent, obj){
 	image.classList.add('search-image')
 
 	var movieLink = document.createElement('a');
+	movieLink.classList.add('movieLink');
 	movieLink.href = "./show_movie.html?id=" + obj.id;
 
 	var title = document.createElement('h3');
@@ -212,6 +215,8 @@ function load_more(amount = 10){
 		alert('No more results in this search.');
 	}
 
+	check_current_shown();
+
 	document.getElementById('shown-images').innerHTML = currentShown;
 }
 
@@ -236,6 +241,19 @@ function do_advanced_search(){
 		totals[i].innerHTML = results.length;
 	};
 	display_results(movies);
+}
+
+/**
+ * Removes the loadMoreButton if there are 
+ * no more images to be displayed.
+ */
+function check_current_shown(){
+	var button = document.getElementById('loadMoreButton');
+	if(currentShown == currentResults.length){
+		button.style.display = 'none';
+	}else{
+		button.style.display = 'block';
+	}
 }
 
 

@@ -3,7 +3,14 @@
  */
 
 function show_menu(){
-    document.querySelector('.menu-list').classList.toggle('open');
+	var elem = document.querySelector('.menu-list');
+	var classes = elem.classList;
+    classes.toggle('open');
+    if(classes.contains('open')){
+    	elem.style.right = '0';
+    }else{
+    	elem.style.right = '-200px'
+    }
 }
 
 

@@ -52,7 +52,7 @@
         </section>
 
             <form id="search" action="search_results.html" method="get">
-        <fieldset>
+        <fieldset id="search-box">
             <legend>Søk</legend>
             <table>
                 <tr>
@@ -113,21 +113,8 @@
 
         </div>
         <button id="loadMoreButton" onclick="load_more()">Load more</button>
-        <p>Showing <span id="shown-images">0</span> of <span class="numberOfResults"></span> images</p>
+        <p style="text-align: center;">Showing <span id="shown-images">0</span> of <span class="numberOfResults"></span> results.</p>
     </main>
-
-<script>
-    function getSearchQuery(){
-        url = window.location.href;
-        var input = url.split('?film_title=');
-        return encodeURIComponent(input[1]);
-    }
-
-    var url_param = getSearchQuery();
-    if(url_param != ''){
-        document.getElementById('search-input').innerHTML = url_param;
-    }
-</script>
 </body>
 
 </html>
