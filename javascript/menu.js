@@ -3,13 +3,13 @@
  */
 
 function show_menu(){
-    var mobile_nav = $(".menu-list");
-    if(mobile_nav.hasClass('open')){
-        mobile_nav.removeClass('open');
-        mobile_nav.css('right','-200px');
+	var elem = document.querySelector('.menu-list');
+	var classes = elem.classList;
+    classes.toggle('open');
+    if(classes.contains('open')){
+    	elem.style.right = '0';
     }else{
-        mobile_nav.addClass('open');
-        mobile_nav.css('right','0');
+    	elem.style.right = '-200px'
     }
 }
 
