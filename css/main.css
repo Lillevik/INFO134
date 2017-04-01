@@ -37,8 +37,6 @@ main{
 
 .info-pane{
 	width: auto;
-    white-space: nowrap;
-    overflow-y:hidden;
     -webkit-overflow-scrolling:touch;
 	padding: 5px;
 	height:210px;
@@ -47,6 +45,47 @@ main{
 	border:1px solid silver;
 	border-radius:2px;
 	box-shadow:0 0 15px #333;
+	position: relative;
+}
+
+.inner-info-pane{
+	white-space: nowrap;
+    overflow-y:hidden;
+    height:210px;
+}
+
+.fa-arrow-right, .fa-arrow-left{
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.more-content-right{
+	position: absolute;
+	right:0px;
+	top:0px;
+	display: block;
+	height: 100%;
+	width: 50px;
+	background: rgba(68, 68, 68, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 0 auto;
+	transition: all 1s;
+}
+
+.more-content-left{
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: block;
+	height: 100%;
+	width: 50px;
+	background: rgba(68, 68, 68, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 0 auto;
+	transition: all 1s;
 }
 
 .info-header-wrap{

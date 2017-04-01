@@ -47,6 +47,7 @@
     </header>
 
     <main>
+        <label for="fuzzy-option">Fuzzy search:</label><input id="fuzzy-option" type="checkbox" value="false">
         <form id="search" action="search_results.html" method="get">
         <fieldset id="search-box">
             <legend>Søk</legend>
@@ -99,10 +100,16 @@
                     
                 </table>
             </details>  
-            <p> <span class="numberOfResults"></span> results</p>
+            
         </fieldset>
         <input type="button" id="submit_search" value="Søk" onclick="do_advanced_search()">
     </form>
+    <form id="fuzzy-search">
+        <input type="search" name="fuzzy-search-input" id="fuzzy-search-input" placeholder="Search for title, actor, director genre or country...">
+        <input type="submit" id="submit_fuzzy_search" value="Søk" onclick="do_advanced_fuzzy_search()">
+
+    </form> 
+    <p> <span class="numberOfResults"></span> results</p>
 
         <div id="search-results">
          

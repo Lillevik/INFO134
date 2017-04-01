@@ -38,6 +38,21 @@ window.onload = function(){
 		append_list_element(myList, my_list[key]);
 	}
 
+	var items = document.querySelectorAll('.more-content-right');
+	for (var i = 0; i < items.length; i++) {
+	 	items[i].addEventListener('mouseover', function(){
+	 		var arrow = this.childNodes[1];
+	 		arrow.style.transform = "scale(1.2)"
+	 		arrow.style.color = "white";
+	 		this.nextSibling.nextSibling.nextSibling.nextSibling.scrollLeft += 100;
+	 		console.log(this.nextSibling.nextSibling.nextSibling.nextSibling)
+	 	});
 
+	 	items[i].addEventListener('mouseout', function(){
+	 		var arrow = this.childNodes[1];
+	 		arrow.style.transform = "scale(1)"
+	 		arrow.style.color = "rgba(255, 255, 255, 0.5)";
+	 	});
+	 } 
 };
 
