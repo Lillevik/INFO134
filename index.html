@@ -45,32 +45,47 @@
 	</header>
 
 	<main>
+		<!-- Recent Loans -->
 		<div class="info-header-wrap">
 			<h3 class="infoHeader">Siste lånte<span class="scroll-for-more">Scroll -></span></h3>
 		</div>
 		<div class="info-pane">
-			<div class="more-content-right" id="lastLoadnedMore"></div>
-			<div id="lastLoaned" class="inner-info-pane"></div>
+			<div class="more-content-right" style="z-index: 10;">
+				<i class="fa fa-arrow-right" aria-hidden="true"></i>
+			</div>
+
+			<div class="more-content-left" style="z-index: 10;">
+				<i class="fa fa-arrow-left" aria-hidden="true"></i>
+			</div>
+
+			<div id="lastLoaned" class="inner-info-pane">
+				<div id="innerLastLoaned" class="inner-content"></div>
+			</div>
 		</div>
 
+		
+
+		<!-- My list element -->
 		<div class="info-header-wrap">
 			<h3 class="infoHeader">Min liste<span class="scroll-for-more">Scroll -></span></h3>
 		</div>
 		<div class="info-pane">
 
-			<div class="more-content-right">
+			<div class="more-content-right" style="z-index: 10;">
 				<i class="fa fa-arrow-right" aria-hidden="true"></i>
 			</div>
 
-			<div class="more-content-left">
+			<div class="more-content-left" style="z-index: 10;">
 				<i class="fa fa-arrow-left" aria-hidden="true"></i>
 			</div>
 
-			<div id="myList" class="inner-info-pane"></div>
+			<div id="myList" class="inner-info-pane">
+				<div id="innerMyList" class="inner-content" style="left:0px;right:0px;"></div>
+			</div>
 		</div>
 
 
-	
+		<!-- Routines for loans -->
 		<div class="info-header-wrap">
 			<h3 class="infoHeader">Rutiner for lån</h3>
 		</div>

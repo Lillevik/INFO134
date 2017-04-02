@@ -13,8 +13,9 @@ text, p, label, span, input, li, time, h1, h2, h3{
 	overflow: auto;
 }
 
-.scroll-for-more{
-	float: right;
+.more-content-left .more-content-right{
+	cursor: pointer;
+	z-index: 10;
 }
 
 main{
@@ -23,6 +24,7 @@ main{
 	max-width: 100%;
 	z-index: 999;
 	overflow: hidden;
+	padding-bottom: 50px;
 }
 
 #routines{
@@ -46,12 +48,27 @@ main{
 	border-radius:2px;
 	box-shadow:0 0 15px #333;
 	position: relative;
+	transition: all 0.5s;
+	overflow:hidden;
 }
 
 .inner-info-pane{
 	white-space: nowrap;
-    overflow-y:hidden;
     height:210px;
+    width: inherit;
+    max-width: 100%;
+}
+
+.inner-content{
+	white-space: nowrap;
+    background-size:cover; 
+    height: inherit; 
+	position: absolute;
+	left: 0px;
+	top:0px;
+	bottom: 0px;
+	right:0px;
+	transition: all 0.5s;
 }
 
 .fa-arrow-right, .fa-arrow-left{

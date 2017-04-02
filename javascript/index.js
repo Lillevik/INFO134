@@ -27,8 +27,8 @@ function append_list_element(parent, obj){
 };
 
 window.onload = function(){
-	const recentLoans = document.getElementById('lastLoaned');
-	const myList = document.getElementById('myList');
+	const recentLoans = document.getElementById('innerLastLoaned');
+	const myList = document.getElementById('innerMyList');
 
 	for(var key in last_loans){
 		append_list_element(recentLoans, last_loans[key]);
@@ -37,21 +37,93 @@ window.onload = function(){
 	for(var key in my_list){
 		append_list_element(myList, my_list[key]);
 	}
+	var rightTimer = null;
+	var leftTimer = null;
 
+	//Handling the right 'scroll' event
 	var items = document.querySelectorAll('.more-content-right');
 	for (var i = 0; i < items.length; i++) {
+
+		items[i].addEventListener('mousedown', function(){
+			var elem = this.nextSibling.nextSibling.nextSibling.nextSibling.childNodes[1];	
+			rightTimer=setInterval(function(){
+	          	
+				var currentRightPos = parseInt(elem.style.right.split('px')[0]);
+				var currentLeftPos = parseInt(elem.style.left.split('px')[0])
+				var newRightPos;
+				var newLeftPos;
+
+				newRightPos = currentRightPos + 50;
+				newLeftPos = currentLeftPos - 50;
+				
+				elem.style.right = newRightPos + 'px';
+				elem.style.left = newLeftPos + 'px';
+		     }, 100);	
+		})
+
+		items[i].addEventListener('mouseup', function(){
+			clearInterval(rightTimer);
+		})
+
 	 	items[i].addEventListener('mouseover', function(){
 	 		var arrow = this.childNodes[1];
 	 		arrow.style.transform = "scale(1.2)"
 	 		arrow.style.color = "white";
-	 		this.nextSibling.nextSibling.nextSibling.nextSibling.scrollLeft += 100;
-	 		console.log(this.nextSibling.nextSibling.nextSibling.nextSibling)
+	 	});
+
+
+
+	 	items[i].addEventListener('mouseout', function(){
+	 		var arrow = this.childNodes[1];
+	 		arrow.style.transform = "scale(1)"
+	 		arrow.style.color = "rgba(255, 255, 255, 0.5)";
+	 		clearInterval(rightTimer);
+	 	});
+	 } 
+
+	//Handling the left 'scroll' event
+	var items = document.querySelectorAll('.more-content-left');
+	for (var i = 0; i < items.length; i++) {
+
+		items[i].addEventListener('mousedown', function(){
+			
+			var elem = this.nextSibling.nextSibling.childNodes[1];
+			var lastChilds = elem.childNodes;
+			console.log(lastChilds[lastChilds.length - 1])
+			leftTimer=setInterval(function(){
+
+				var currentRightPos = parseInt(elem.style.right.split('px')[0]);
+				var currentLeftPos = parseInt(elem.style.left.split('px')[0])	
+				if(currentLeftPos < 0){
+
+					var newRightPos;
+					var newLeftPos;
+
+					newRightPos = currentRightPos - 50;
+					newLeftPos = currentLeftPos + 50;
+					
+					elem.style.right = newRightPos + 'px';
+					elem.style.left = newLeftPos + 'px';
+				}
+			}, 100);
+			
+		})
+
+		items[i].addEventListener('mouseup', function(){
+			clearInterval(leftTimer);
+		})
+
+	 	items[i].addEventListener('mouseover', function(){
+	 		var arrow = this.childNodes[1];
+	 		arrow.style.transform = "scale(1.2)"
+	 		arrow.style.color = "white";
 	 	});
 
 	 	items[i].addEventListener('mouseout', function(){
 	 		var arrow = this.childNodes[1];
 	 		arrow.style.transform = "scale(1)"
 	 		arrow.style.color = "rgba(255, 255, 255, 0.5)";
+	 		clearInterval(leftTimer);
 	 	});
 	 } 
 };
