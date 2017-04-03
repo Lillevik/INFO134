@@ -16,8 +16,8 @@ function find_genres(category) {
 
             // Check if the movie and genre objects are not connected
             if(typeof movie_details === "undefined"){
-                console.log("undefined - " + i );
-                    
+                // ... jepp
+
             } else {
 
             // make the listelements and links in html
@@ -34,11 +34,12 @@ function find_genres(category) {
             }
 
         } else {
-            // console.log("NO.. " + "i-" + i + ", c-" + count + ", " + genres_object[i]);
+
         }
     }
 };
 
+// Run the functions on load of the website.
 window.onload = function(){
     query_params = get_query_string_parameters();
     
