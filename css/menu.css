@@ -16,6 +16,7 @@ nav{
     text-align: center;
     margin: 0 auto;
     max-width: 100%;
+    z-index: 100;
 }
 
 text, p, label, span, input, li, a, time, h1, h2, h3{

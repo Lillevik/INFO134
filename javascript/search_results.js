@@ -16,75 +16,128 @@ var currentShown = 0;
  * @param{String} country
  * @return {Array} An array of movie objects.
  */
-function advanced_search(title, actor, director, genre, country){
+function advanced_search(title, actor, director, genre, country) {
 	results = [];
-	for (var key in movies_object){
+	for (var key in movies_object) {
 		match = true;
 		var movieObject = movies_object[key];
 		var movieActors = [];
 		var genres = genres_object[movieObject.id];
 
-		try{
+		try {
 			var movieActors = movieObject.folk.split(',');
-		}catch(e){
+		} catch (e) {
 
 		}
-		
-		if(title != ''){
-			if(movieObject.otitle.toLowerCase().includes(title.toLowerCase())){
+
+		if (title != '') {
+			if (movieObject.otitle.toLowerCase().includes(title.toLowerCase())) {
 				match = true;
-			}else{
+			} else {
 				match = false;
 			}
 		}
-		
-		
-		if(actor != ''){
+
+
+		if (actor != '') {
 			var actorExists = movieActors.findIndex(item => item.toLowerCase().includes(actor.toLowerCase()) && match);
-			if(actorExists != -1){
+			if (actorExists != -1) {
 				match = true;
-			}else{
+			} else {
 				match = false;
 			}
 		}
 
-		if(director != ''){
-			if(movieObject.dir.toLowerCase().includes(director.toLowerCase()) && match){
+		if (director != '') {
+			if (movieObject.dir.toLowerCase().includes(director.toLowerCase()) && match) {
 				match = true;
-			}else{
+			} else {
 				match = false;
 			}
 		}
 
-		if(genre != ''){
-			try{
+		if (genre != '') {
+			try {
 				var genreExist = genres.includes(genre.toLowerCase());
-				if(genreExist && match){
+				if (genreExist && match) {
 					match = true;
-				}else{
+				} else {
 					match = false;
 				}
 
-			}catch(e){
+			} catch (e) {
 
 			}
 		}
-		
 
-		if(country != ''){
-			if(movieObject.country.toLowerCase().includes(country.toLowerCase()) && match){
+
+		if (country != '') {
+			if (movieObject.country.toLowerCase().includes(country.toLowerCase()) && match) {
 				match = true;
-			}else{
+			} else {
 				match = false;
 			}
 		}
 
-		if(match){
+		if (match) {
 			results.push(movieObject);
 		}
 	}
 	currentShown = 0;
 	return results;
+}
+/**
+ * @param  {String}
+ * @return {Array}
+ */
+function advanced_fuzzy_search(query) {
+	var movies = [];
+	for (var key in movies_object) {
+		movies.push(movies_object[key])
+	}
+	//var genres = genres_object[movieObject.id];
+
+	var titleMatch = function(o) {
+		return o.otitle.toLowerCase().includes(query.toLowerCase());
+	};
+
+	var actorMatch = function(o) {
+		var movieActors = []
+		try {
+			movieActors = o.folk.split(',');
+		} catch (e) {
+
+		}
+		var match = movieActors.findIndex(o => o.toLowerCase().includes(query.toLowerCase()));
+		if(match == -1){
+			return false;
+		}else{
+			return true;
+		}		
+	};
+
+	var directorMatch = function(o){
+		return o.dir.toLowerCase().includes(query.toLowerCase());
+	}
+
+	var genreMatch = function(o){
+		var genres = genres_object[o.id];
+		try{
+			return genres.includes(query.toLowerCase());
+		}catch(e){
+			return false;
+		}
+	}
+
+	var countryMatch = function(o){
+		return o.country.toLowerCase().includes(query.toLowerCase());
+	}
+
+	//var directorMatch = movieObject.dir.toLowerCase().includes(director.toLowerCase());
+	//var genreMatch = genres.includes(genre.toLowerCase());
+	//var countryMatch = movieObject.country.toLowerCase().includes(country.toLowerCase());
+	currentShown = 0;
+	return movies.filter(a => titleMatch(a) || actorMatch(a) || directorMatch(a) || genreMatch(a) || countryMatch(a));
 }
 
 /**
@@ -95,15 +148,15 @@ function advanced_search(title, actor, director, genre, country){
  * @param {Array} data
  * @return {Array} results
  */
-function search_title(titleQuery, data){
+function search_title(titleQuery, data) {
 	results = []
 	for (var key in data) {
-    	var movieObject = data[key];
-		if(movieObject.otitle.toLowerCase().includes(titleQuery.toLowerCase())){
+		var movieObject = data[key];
+		if (movieObject.otitle.toLowerCase().includes(titleQuery.toLowerCase())) {
 			results.push(movieObject);
 		}
-   	}
-   	return results;
+	}
+	return results;
 }
 
 /**
@@ -113,7 +166,7 @@ function search_title(titleQuery, data){
  * @param {Array} data - A list of movie objects 
  * @return {void}
  */
-function display_results(data){
+function display_results(data) {
 	currentResults = data;
 
 	var parent = document.getElementById('search-results');
@@ -122,20 +175,20 @@ function display_results(data){
 
 	var length = null;
 
-	if(data.length > 10){
+	if (data.length > 10) {
 		length = 10;
-	}else{
+	} else {
 		length = data.length
 	}
 
 	for (var i = 0; i < length; i++) {
-		try{
+		try {
 			var obj = data[i];
 			append_section(parent, obj);
-		}catch(e){
+		} catch (e) {
 			console.log(e);
 		}
-		
+
 	}
 
 	check_current_shown();
@@ -150,7 +203,7 @@ function display_results(data){
  * @param {Element} parent - The container to append to.
  * @param {Object} obj - A movie object 
  */
-function append_section(parent, obj){
+function append_section(parent, obj) {
 	var outerSection = document.createElement('section');
 	outerSection.classList.add('search-item');
 
@@ -172,16 +225,16 @@ function append_section(parent, obj){
 	var description = document.createElement('p');
 
 	var descriptionString = "";
-	try{
+	try {
 		descriptionString = obj.description;
 
-		if(descriptionString.length > 500){
-			descriptionString = descriptionString.substring(0,500) + '...';
+		if (descriptionString.length > 500) {
+			descriptionString = descriptionString.substring(0, 500) + '...';
 		}
-	}catch(e){
+	} catch (e) {
 
 	}
-	
+
 	description.innerHTML = descriptionString;
 
 
@@ -203,18 +256,18 @@ function append_section(parent, obj){
  * @param {Integer} amount - The amount of results to load.
  * @return {void}
  */
-function load_more(amount = 10){
+function load_more(amount = 10) {
 	var length = null;
 
-	if((currentResults.length - currentShown) > amount){
+	if ((currentResults.length - currentShown) > amount) {
 		length = amount;
-	}else{
+	} else {
 		length = (currentResults.length - currentShown);
 	}
 
 	var imagesToLoad = (currentShown + length);
 
-	if((currentResults.length - currentShown) != 0){
+	if ((currentResults.length - currentShown) != 0) {
 		var parent = document.getElementById('search-results');
 		for (var i = currentShown; i < imagesToLoad; i++) {
 			append_section(parent, currentResults[i])
@@ -233,7 +286,7 @@ function load_more(amount = 10){
  *
  * @return{void}
  */
-function do_advanced_search(){
+function do_advanced_search() {
 	var title = document.getElementById('film_title').value;
 	var actor = document.getElementById('actor').value;
 	var director = document.getElementById('director').value;
@@ -241,11 +294,22 @@ function do_advanced_search(){
 	var country = document.getElementById('country').value;
 
 	movies = advanced_search(title, actor, director, genre, country);
-
 	var totals = document.querySelectorAll('.numberOfResults');
 	for (var i = 0; i < totals.length; i++) {
-		totals[i].innerHTML = results.length;
+		totals[i].innerHTML = movies.length;
 	};
+
+	display_results(movies);
+}
+
+function do_advanced_fuzzy_search(){
+	var query = document.getElementById('fuzzy-search-input').value;
+	movies = advanced_fuzzy_search(query);
+	var totals = document.querySelectorAll('.numberOfResults');
+	for (var i = 0; i < totals.length; i++) {
+		totals[i].innerHTML = movies.length;
+	};
+
 	display_results(movies);
 }
 
@@ -253,11 +317,11 @@ function do_advanced_search(){
  * Removes the loadMoreButton if there are 
  * no more images to be displayed.
  */
-function check_current_shown(){
+function check_current_shown() {
 	var button = document.getElementById('loadMoreButton');
-	if(currentShown == currentResults.length){
+	if (currentShown == currentResults.length) {
 		button.style.display = 'none';
-	}else{
+	} else {
 		button.style.display = 'block';
 	}
 }
@@ -265,17 +329,16 @@ function check_current_shown(){
 
 var infiniteScroll = false;
 window.onscroll = function(ev) {
-	if(currentShown < currentResults.length){
-		if(infiniteScroll){
+	if (currentShown < currentResults.length) {
+		if (infiniteScroll) {
 			if ((window.innerHeight + window.scrollY + 200) >= document.body.offsetHeight) {
 				infiniteScroll = false;
-		    	load_more(10);
-		    	infiniteScroll = true;
-		    }
+				load_more(10);
+				infiniteScroll = true;
+			}
 		}
 	}
 };
-
 
 
 
@@ -289,14 +352,14 @@ window.onload = function() {
 	query_params = get_query_string_parameters();
 
 	var results = [];
-	
+
 	if (query_params.film_title) {
-        film_title = query_params.film_title.toLowerCase();
+		film_title = query_params.film_title.toLowerCase();
 		results = search_title(film_title, movies_object);
 		display_results(results);
-    }
+	}
 
-    
+
 
 	var totals = document.querySelectorAll('.numberOfResults');
 	for (var i = 0; i < totals.length; i++) {
@@ -308,6 +371,7 @@ window.onload = function() {
 	var directorTimer = null;
 	var genreTimer = null;
 	var countryTimer = null;
+	var fuzzyTimer = null;
 
 
 	var textInputs = document.querySelectorAll('input[type="text"]');
@@ -315,28 +379,41 @@ window.onload = function() {
 	//Adds eventlistener to all the textinputs in order to listen 
 	//to when changes are made and a search is execute
 	for (var i = 0; i < textInputs.length; i++) {
-			textInputs[i].addEventListener('input',function(){
-				query = this.value;
-				clearTimeout(window[this.getAttribute('id') + 'Timer']);
-				window[this.getAttribute('id') + 'Timer'] = setTimeout(function(){
-					do_advanced_search();
-			},500);
+		textInputs[i].addEventListener('input', function() {
+			query = this.value;
+			clearTimeout(window[this.getAttribute('id') + 'Timer']);
+			window[this.getAttribute('id') + 'Timer'] = setTimeout(function() {
+				do_advanced_search();
+			}, 500);
 		});
 	}
 
 	var toggleInfinite = document.getElementById('toggleInfinite');
-	toggleInfinite.addEventListener('change', function(){
-		if(this.value == 'false'){
-			this.value = 'true';
+	toggleInfinite.addEventListener('change', function() {
+		if (this.checked) {
 			infiniteScroll = true;
-		}else{
-			this.value = 'false';
+		} else {
 			infiniteScroll = false;
 		}
-
-		console.log(this.value)
-		
-
 	});
-}
 
+	var toggleSearchMode = document.getElementById('fuzzy-option');
+	toggleSearchMode.addEventListener('change', function(){
+		if (this.checked) {
+			document.getElementById('fuzzy-search').style.display = 'flex';
+			document.getElementById('search').style.display = "none";
+		} else {
+			document.getElementById('fuzzy-search').style.display = 'none';
+			document.getElementById('search').style.display = "block";
+		}
+	})
+
+	var fuzzyInput = document.getElementById('fuzzy-search-input');
+	fuzzyInput.addEventListener('input', function(){
+		query = this.value;
+		clearTimeout(fuzzyTimer);
+		fuzzyTimer = setTimeout(function() {
+			do_advanced_fuzzy_search();
+		}, 500);
+	})
+}
