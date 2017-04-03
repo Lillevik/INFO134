@@ -87,8 +87,10 @@ function advanced_search(title, actor, director, genre, country) {
 	return results;
 }
 /**
- * @param  {String}
- * @return {Array}
+ * This function handles the fuzzy search
+ * function.						
+ * @param  {String} - The search query
+ * @return {Array} - An array of objects
  */
 function advanced_fuzzy_search(query) {
 	var movies = [];
@@ -133,9 +135,6 @@ function advanced_fuzzy_search(query) {
 		return o.country.toLowerCase().includes(query.toLowerCase());
 	}
 
-	//var directorMatch = movieObject.dir.toLowerCase().includes(director.toLowerCase());
-	//var genreMatch = genres.includes(genre.toLowerCase());
-	//var countryMatch = movieObject.country.toLowerCase().includes(country.toLowerCase());
 	currentShown = 0;
 	return movies.filter(a => titleMatch(a) || actorMatch(a) || directorMatch(a) || genreMatch(a) || countryMatch(a));
 }
@@ -316,6 +315,8 @@ function do_advanced_fuzzy_search(){
 /**
  * Removes the loadMoreButton if there are 
  * no more images to be displayed.
+ *
+ * @return {Void} 
  */
 function check_current_shown() {
 	var button = document.getElementById('loadMoreButton');
@@ -326,7 +327,7 @@ function check_current_shown() {
 	}
 }
 
-
+//Loads more results if the scroll more box is toggled
 var infiniteScroll = false;
 window.onscroll = function(ev) {
 	if (currentShown < currentResults.length) {

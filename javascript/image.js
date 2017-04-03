@@ -63,9 +63,13 @@ function append_image(image_url){
 		console.log("no img");
 	}
 }
-
+/**
+ * Checks if an image exists
+ * @param  {String} image_url - An url for an image
+ * @return {Boolean} - True if it exists and false if not
+ */
 function validate_img_url(image_url){
-		var image = new Image();
+	var image = new Image();
 	image.src = image_url;
 	image.onload = function() {
 	    // image exists and is loaded
