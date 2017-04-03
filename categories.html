@@ -5,12 +5,11 @@
     <script type="text/javascript" src="javascript/categories.js"></script>
     <script type="text/javascript" src="javascript/object.js"></script>
     <script type="text/javascript" src="javascript/genres.js"></script>
-    <script type="text/javascript" src="javascript/style.js"></script>
 </head>
 <body>
-<!-- Pretty dropdown menu for categories -->
+<!-- Button was supposed to be a dropdown, but styling was postponed (never happened) -->
 <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Categories</button>
+    <button class="dropbtn">Categories</button>
         <div id="myDropdown" class="dropdown-content">
             <a id="komedie" href="categories.html?category=komedie">Komedie</a>
             <a id="scifi" href="categories.html?category=sci-fi">Sci-Fi</a>
@@ -30,6 +29,7 @@
             <a id="historie" href="categories.html?category=historie">Historie</a>
         </div>
     </div>
+    <!-- List to append all movies results. -->
     <ol id="categories"></ol>
 </body>
 </html>
