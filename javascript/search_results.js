@@ -21,7 +21,7 @@ function advanced_search(title, actor, director, genre, country) {
 	for (var key in movies_object) {
 		match = true;
 		var movieObject = movies_object[key];
-		var movieActors = [];
+		var movieActors = []; 
 		var genres = genres_object[movieObject.id];
 
 		try {
