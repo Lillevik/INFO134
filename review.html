@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Write review</title>
+	<meta charset="utf-8">
 	<title>Write Review</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/review.css">
 </head>
 <body>
+	<header>
+    <nav class="menu">
+        <a href="index.html" id="logo-link"><img alt="logo" id="logo" src="./images/film.png"></a>
+        <div id="mobile-wrapper">
+            <form action="./search.html" id="search-wrapper">
+                <input id="search-field" type="text" name="search-field" placeholder="Search here">
+                <input type="submit" id="search-button" value="Search">
+            </form>
+            <i onclick="show_menu()" id="drop-down" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </div>
+            <ul class="menu-list">
+                <li class="navItem"><a class="menuLink" href="./">Home</a></li>
+                <li class="navItem"><a class="menuLink" href="">Top</a></li>
+                <li class="navItem"><a class="menuLink" href="">About</a></li>
+                <li class="navItem"><a class="menuLink" href="categories.html">Categories</a></li>
+                <li class="right-menu-item"> 
+                    <ul>
+                        <li class="navItem"><a class="menuLink" href="./">abc123</a></li>
+                        <li class="navItem"><a class="menuLink" href="./">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>     
+        </nav>
+    </header>
 	<!-- This page only contains a section with a post form for future functionality. Currently there is nothing going on in this file. -->
 	<section id="review_section">
 		<form id="review_form" method="post" action="#">
-			<input type="radio" name="rating" value="1" for="film_rating" id="review_rating">1
-			<input type="radio" name="rating" value="2" for="film_rating" id="review_rating">2
-			<input type="radio" name="rating" value="3" for="film_rating" id="review_rating">3
-			<input type="radio" name="rating" value="4" for="film_rating" id="review_rating">4
-			<input type="radio" name="rating" value="5" for="film_rating" id="review_rating">5
-			<textarea name="movie_review" placeholder="This movie was great because ..." rows="10" cols="50" autofocus></textarea>
-
-			<input type="submit" name="submit">
+			<textarea cols="50" rows="10" placeholder="Write review here .."></textarea>
+			<div id="stars">
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+              <span class="star">☆</span>
+            </div>
+            <button title="Submit review." name="submit">Submit</button>
 		</form>
 	</section>
 </body>
