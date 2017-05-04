@@ -36,8 +36,11 @@ window.onload = function() {
         trailer_element.appendChild(iframe);
 
     } else {
-        trailer_element.innerHTML = "no trailer";
+        trailer_element.innerHTML = "Trailer not available.";
     }
+
+    // Calculate the rating.
+    var rating = get_rating(query_params.id);
     
     // Get the image linked to the movie.
     var img_url = get_image_url(movie_object.id);
@@ -63,7 +66,7 @@ window.onload = function() {
     var length_element = document.getElementById("length");
     var summary_element = document.getElementById("summary");
     var genre_element = document.getElementById("genre");
-    var rating_element = document.getElementById("rating")
+    var rating_element = document.getElementById("rating");
 
     // Populate the HTML elements with the correct
     // info fetched from the different objects.
@@ -76,6 +79,7 @@ window.onload = function() {
     length_element.innerHTML = movie_object["length"] + " min";
     summary_element.innerHTML = movie_object["description"];
     genre_element.innerHTML = genre_object[0];
+    rating_element.innerHTML = rating;
     
     // Write it to the page.
     document.title = movie_object["otitle"];

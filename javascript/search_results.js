@@ -83,7 +83,9 @@ function advanced_search(title, actor, director, genre, country) {
 			results.push(movieObject);
 		}
 	}
-	currentShown = 0;
+
+    window.history.replaceState({}, "", "search.html?film_title=" + title + "&actor=" + actor + "&director=" + director + "&genre=" + genre + "&country=" + country);
+    currentShown = 0;
 	return results;
 }
 /**
@@ -135,7 +137,8 @@ function advanced_fuzzy_search(query) {
 		return o.country.toLowerCase().includes(query.toLowerCase());
 	}
 
-	currentShown = 0;
+    window.history.replaceState({}, "", "search.html?query=" + query);
+    currentShown = 0;
 	return movies.filter(a => titleMatch(a) || actorMatch(a) || directorMatch(a) || genreMatch(a) || countryMatch(a));
 }
 
@@ -309,7 +312,7 @@ function do_advanced_fuzzy_search(){
 		totals[i].innerHTML = movies.length;
 	};
 
-	display_results(movies);
+    display_results(movies);
 }
 
 /**
@@ -351,13 +354,44 @@ window.onscroll = function(ev) {
  */
 window.onload = function() {
 	query_params = get_query_string_parameters();
-
 	var results = [];
 
-	if (query_params.film_title) {
-		film_title = query_params.film_title.toLowerCase();
-		results = search_title(film_title, movies_object);
+	var title = "";
+	var actor = "";
+	var director = "";
+	var genre = "";
+	var country = "";
+
+	if (query_params.film_title && Object.keys(query_params).length <= 1) {
+		title = query_params.film_title.toLowerCase();
+		results = search_title(title, movies_object);
 		display_results(results);
+	}else if(query_params.query && Object.keys(query_params.length <= 1)){
+		results = advanced_fuzzy_search(query_params.query)
+		display_results(results)
+	}else{
+		if(query_params.film_title){
+            title = query_params.film_title.toLowerCase();
+        }
+
+        if(query_params.actor){
+            actor = query_params.actor.toLowerCase();
+        }
+
+        if(query_params.director){
+            director = query_params.director.toLowerCase();
+        }
+
+        if(query_params.genre){
+            genre = query_params.genre.toLowerCase();
+        }
+
+        if(query_params.country){
+            country = query_params.country.toLowerCase();
+        }
+
+        results = advanced_search(title, actor, director, genre, country);
+        display_results(results)
 	}
 
 

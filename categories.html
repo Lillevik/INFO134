@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Categories</title>
+    <meta charset="utf-8">
     <script type="text/javascript" src="javascript/query_params.js"></script>
     <script type="text/javascript" src="javascript/categories.js"></script>
     <script type="text/javascript" src="javascript/object.js"></script>
     <script type="text/javascript" src="javascript/genres.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/categories.css">
 </head>
 <body>
-<!-- Button was supposed to be a dropdown, but styling was postponed (never happened) -->
-<div class="dropdown">
-    <button class="dropbtn">Categories</button>
-        <div id="myDropdown" class="dropdown-content">
+    <header>
+    <nav class="menu">
+        <a href="index.html" id="logo-link"><img alt="logo" id="logo" src="./images/film.png"></a>
+        <div id="mobile-wrapper">
+            <form action="./search.html" id="search-wrapper">
+                <input id="search-field" type="text" name="search-field" placeholder="Search here">
+                <input type="submit" id="search-button" value="Search">
+            </form>
+            <i onclick="show_menu()" id="drop-down" class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </div>
+            <ul class="menu-list">
+                <li class="navItem"><a class="menuLink" href="./">Home</a></li>
+                <li class="navItem"><a class="menuLink" href="">Top</a></li>
+                <li class="navItem"><a class="menuLink" href="">About</a></li>
+                <li class="navItem"><a class="menuLink" href="categories.html">Categories</a></li>
+                <li class="right-menu-item"> 
+                    <ul>
+                        <li class="navItem"><a class="menuLink" href="./">abc123</a></li>
+                        <li class="navItem"><a class="menuLink" href="./">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>     
+        </nav>
+    </header>
+
+<main>
+    <div id="category_container">
+        <div class="category_buttons">
             <a id="komedie" href="categories.html?category=komedie">Komedie</a>
             <a id="scifi" href="categories.html?category=sci-fi">Sci-Fi</a>
             <a id="drama" href="categories.html?category=drama">Drama</a>
             <a id="dokumentar" href="categories.html?category=dokumentar">Dokumentar</a>
-            <a id="action" href="categories.html?category=action">Action</a>
+        </div>
+        <div class="category_buttons">
             <a id="thriller" href="categories.html?category=thriller">thriller</a>
             <a id="eventyr" href="categories.html?category=eventyr">Eventyr</a>
             <a id="familie" href="categories.html?category=familie">Familie</a>
             <a id="romanse" href="categories.html?category=romanse">Romanse</a>
+        </div>
+        <div class="category_buttons">
             <a id="kortfilm" href="categories.html?category=kortfilm">Kortfilm</a>
             <a id="krig" href="categories.html?category=krig">Krig</a>
             <a id="horror" href="categories.html?category=horror">Horror</a>
             <a id="musikk" href="categories.html?category=musikk">Musikk</a>
+        </div>
+        <div class="category_buttons">
             <a id="kriminal" href="categories.html?category=kriminal">Kriminal</a>
             <a id="western" href="categories.html?category=western">Western</a>
             <a id="historie" href="categories.html?category=historie">Historie</a>
+            <a id="action" href="categories.html?category=action">Action</a>
         </div>
-    </div>
-    <!-- List to append all movies results. -->
+     </div>
+
     <ol id="categories"></ol>
+</main>
 </body>
 </html>

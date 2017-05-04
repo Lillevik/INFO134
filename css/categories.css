@@ -1,0 +1,51 @@
+main{
+	width: 800px;
+}
+#category_container{
+	display: inline-flex;
+	flex-direction: column;
+	width: 100%;
+	margin: auto;
+}
+.category_buttons{
+	margin: auto;
+	display: inline-flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.category_buttons *{
+	text-align: center;
+	width: 100%;
+	margin: auto;
+	border: 1px solid gray;
+	background: lightgray;
+	padding: 5px;
+	text-decoration: none;
+	color: black;
+}
+.category_buttons *:hover{
+	background: white;
+}
+ol{
+	list-style: none;
+	margin: auto;
+	width: 50%;
+}
+#categories li{
+	padding: 5px;
+	border-bottom: 1px solid lightblue;
+}
+#categories li a{
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	font-size: 15px;
+}
+#categories li a:hover{
+	color: lightblue;
+}
+@media (max-width:820px){
+	ol{
+		width: 100%;
+	}
+}
