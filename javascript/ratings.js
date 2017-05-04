@@ -1,5 +1,8 @@
+// File for displaying a movie rating on the show_movie.html page.
+
+// Function matches reviews and 
+// movie id in the reviews.js object.
 function get_rating(id){
-    // Get the reviews
     rating_object = reviews_object[id];
     if (!rating_object) {
         return;
