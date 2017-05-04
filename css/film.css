@@ -51,14 +51,14 @@
 	padding: 10px;
 }
 
-/* Small bits of information */
+/* Everything BUT summary */
 #small_info{
 	display: inline-flex;
 	flex-direction: column;
 	width: 100%;
 }
 
-/* Top section of info - rating */
+/* Top most info, the rating section */
 #rating_section{
 	display: inline-flex;
 	flex-direction: column;
@@ -133,7 +133,7 @@
 	width: 50px;
 }
 
-/* Information about the movie */
+/* Information about the movie NOT summary */
 #info{
 	display: inline-flex;
 	flex-direction: column;
