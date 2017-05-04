@@ -358,7 +358,7 @@ window.onscroll = function(ev) {
  * of half a second on each.
  */
 window.onload = function() {
-	query_params = get_query_string_parameters();
+	var query_params = get_query_string_parameters();
 	var results = [];
 
 	var title = "";
@@ -366,15 +366,15 @@ window.onload = function() {
 	var director = "";
 	var genre = "";
 	var country = "";
-
-	if (query_params.film_title && Object.keys(query_params).length <= 1) {
+	console.log(Object.keys(query_params).length)
+	if (query_params.film_title && Object.keys(query_params).length === 1) {
 		title = query_params.film_title.toLowerCase();
 		results = search_title(title, movies_object);
 		display_results(results);
-	}else if(query_params.query && Object.keys(query_params.length <= 1)){
+	}else if(query_params.query && Object.keys(query_params.length === 1)){
 		results = advanced_fuzzy_search(query_params.query)
 		display_results(results)
-	}else{
+	}else if(Object.keys(query_params).length > 1){
 		if(query_params.film_title){
             title = query_params.film_title.toLowerCase();
         }
