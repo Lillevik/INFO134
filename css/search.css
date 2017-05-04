@@ -113,6 +113,7 @@ td{
     border:1px solid grey;
     display: block;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 
@@ -140,6 +141,12 @@ td{
 
 .movieLink{
     text-decoration: none;
+}
+
+.search-container{
+    max-width: 100%;
+    width: 1000px;
+    margin:0 auto;
 }
 
 
