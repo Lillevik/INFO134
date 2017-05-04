@@ -1,3 +1,8 @@
+/**
+ * Skrevet av kanditat 141.
+ */
+
+
 //An array containing movie object from the last search
 var currentResults = []
 
