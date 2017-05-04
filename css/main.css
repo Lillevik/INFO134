@@ -14,7 +14,7 @@ main{
 	margin: auto;
 	max-width: 100%;
 	z-index: 999;
-	padding:20px;
+	padding:20px 0 20px 0;
 	box-sizing: border-box;
 }
 
@@ -115,6 +115,7 @@ main{
 .single-movie-img-container{
 	max-height: 100%;
 	padding-bottom:20px;
+	padding-top:20px;
 }
 
 .filmPic{
@@ -135,12 +136,16 @@ summary{
 	padding:10px 10px 10px 10px;
 	margin:10px 0 10px 0;
 	box-shadow:0 0 15px #333;
+	outline: none;
+}
+
+summary:hover{
+	cursor: pointer;
 }
 
 details{
 	-webkit-transition: 1s all;
 	transition: 1s all;
-
 }
 
 @media(max-width: 800px){
@@ -168,6 +173,8 @@ details{
 
 	.single-movie-img-container{
 		text-align: center;
+		padding-bottom:10px;
+		padding-top:10px;
 	}
 
 	.filmPic{
