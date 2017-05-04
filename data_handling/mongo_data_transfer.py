@@ -1,3 +1,5 @@
+#Skrevet av kandidat 141
+
 from pymongo import MongoClient
 import json
 

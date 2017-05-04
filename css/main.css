@@ -1,3 +1,8 @@
+/*
+* Skrevet av kandidat 141
+*/
+
+
 html, body{
 	padding: 0;
 	margin: 0;
@@ -14,7 +19,7 @@ main{
 	margin: auto;
 	max-width: 100%;
 	z-index: 999;
-	padding:20px 0 20px 0;
+	padding:20px 10px 20px 10px;
 	box-sizing: border-box;
 }
 
@@ -56,6 +61,10 @@ main{
 	margin-bottom:20px;
 }
 
+/* 
+	The main container for the movie
+	elements.
+*/
 .single-movie-wrapper{
 	background:#333;
 	border-radius: 5px;
@@ -93,7 +102,9 @@ main{
 	width: 100%;
 	background:rgba(89,115,246,0.96);
 }
-
+/* 
+	The wrapper for the movie elements.
+*/
 .single-movie-container{
 	width: 25%;
 	box-sizing: border-box;
@@ -148,18 +159,31 @@ details{
 	transition: 1s all;
 }
 
+/* 
+	Changes the width of the movie
+	wrapper when it reaches 800px.
+*/
 @media(max-width: 800px){
 	.single-movie-container{
 		width: 33.3%;
 	}
 }
 
+/* 
+	Changes the width of the movie
+	wrapper when it reaches 600px.
+*/
 @media(max-width: 600px){
 	.single-movie-container{
 		width: 50%;
 	}
 }
 
+/* 
+	Changes the width of the movie
+	wrapper when it reaches 400px
+	and some other elements.
+*/
 @media(max-width: 400px){
 	.single-movie-container{
 		width: 100%;

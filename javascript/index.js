@@ -41,6 +41,14 @@ function append_list_element(parent, obj){
 	parent.appendChild(singleMovieContainer);
 };
 
+/**
+ * This function loads the elements
+ * on this index page when the document
+ * has finished loading.
+ * @param {Element} - The container to add elements
+ * @param {Object} - Object of movie objects
+ * @return {Void} 
+ */
 function add_elements(container, objects){
     for(var key in objects){
         append_list_element(container, objects[key]);

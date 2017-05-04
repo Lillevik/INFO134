@@ -1,3 +1,7 @@
+/**
+ * Skrevet av kanditat 141.
+ */
+
 my_list={
 	"1080": {
 		"id": 1080, 
