@@ -1,6 +1,4 @@
-// File for generating the page 
-// with information on a specific movie.
-
+// Skrevet av kandidat 270.
 
 // Prints and error if the 
 // page is laoded wuthout
