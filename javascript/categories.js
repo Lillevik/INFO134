@@ -1,47 +1,36 @@
+// File for listing movies based on 
+// A desired category. The different movie 
+// genres found in the object 
+// are used as categories.
 
-// List all movies of a specific genre
+// List all movies of a genre specified as a parameter.
 function find_genres(category) {
     
-    // Define the list to put it in
+    // Define the HTML list element to put it in.
     list_element = document.getElementById("categories");
     
-    // Look at all movies with genre
+    // Iterate over the genre object and 
+    // pick out the instances that matches
+    // The specified genre.
     for (i in genres_object){
-    
-        // Check for the correct genre
         if(!genres_object[i].indexOf(category)){
-            
-            // Bind the genre_object to the movie_object using ID
             movie_details = movies_object[i];
 
-            // Check if the movie and genre objects are not connected
-            if(typeof movie_details === "undefined"){
-                // ... jepp
-
-            } else {
-
-            // make the listelements and links in html
-            list_item = document.createElement("LI");
-            item_link = document.createElement("A");
-
-            // set the links to redirect to the specific movie with title
-            item_link.href = "show_movie.html?id=" + i;
-            link_text = document.createTextNode(movie_details["otitle"]);
-            item_link.appendChild(link_text);
-            list_item.appendChild(item_link);
-            list_element.appendChild(list_item);
-
+            if(typeof movie_details !== "undefined"){
+                list_item = document.createElement("LI");
+                item_link = document.createElement("A");
+                item_link.href = "show_movie.html?id=" + i;
+                link_text = document.createTextNode(movie_details["otitle"]);
+                item_link.appendChild(link_text);
+                list_item.appendChild(item_link);
+                list_element.appendChild(list_item);
             }
-
-        } else {
-
         }
     }
 };
 
-// Run the functions on load of the website.
+// Run the function on page load.
 window.onload = function(){
     query_params = get_query_string_parameters();
-    
     find_genres(query_params.category);
 };
