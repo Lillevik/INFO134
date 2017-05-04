@@ -1,6 +1,4 @@
-// File for generating the page 
-// with information on a specific movie.
-
+// Skrevet av kandidat 270.
 
 // Prints and error if the 
 // page is laoded wuthout
@@ -8,6 +6,9 @@
 function panic(message) {
     alert(message);
 }
+
+
+
 
 // Run the script on page load.
 window.onload = function() {
@@ -40,9 +41,46 @@ window.onload = function() {
         trailer_element.style.height = "auto";
     }
 
-    // Calculate the rating.
-    var rating = get_rating(query_params.id);
+
+    // Function matches reviews and 
+    // movie id in the reviews.js object.
+    rating_object = reviews_object[query_params.id];
+    var reviews_list = document.getElementById("reviews");
+    if (rating_object == "undefined") {
+        return;
+
+    } else {
+        // Calculate rating
+        // and add the review to 
+        // a list element at the same time.
+        var sum = 0;
+        var num = 0;
+        for(var key in rating_object) {
+            var value = rating_object[key];
+            sum = sum + value.rating;
+            num = num + 1;
+        
+            text = value.username + ": " + value.rating + "/5 - " + value.comment;
+            list_item = document.createElement("LI");
+            item_text = document.createTextNode(text);
+            list_item.appendChild(item_text);
+            reviews_list.appendChild(list_item);
+        }
+
+        if (sum == 0){
+            var rating = "0/5 ";
+            text = "No reviews yet.";
+            list_item = document.createElement("LI");
+            item_text = document.createTextNode(text);
+            list_item.appendChild(item_text);
+            reviews_list.appendChild(list_item);
+
+        } else {
+            var rating = (Math.round((sum / num) * 10) / 10) + " /5" ;
+        }
+    }
     
+
     // Get the image linked to the movie.
     var img_url = get_image_url(movie_object.id);
     append_image(img_url);
@@ -68,6 +106,7 @@ window.onload = function() {
     var summary_element = document.getElementById("summary");
     var genre_element = document.getElementById("genre");
     var rating_element = document.getElementById("rating");
+    var comment_element = 
 
     // Populate the HTML elements with the correct
     // info fetched from the different objects.

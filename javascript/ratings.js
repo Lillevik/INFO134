@@ -1,4 +1,4 @@
-// File for displaying a movie rating on the show_movie.html page.
+// Skrevet av kandidat 270.
 
 // Function matches reviews and 
 // movie id in the reviews.js object.

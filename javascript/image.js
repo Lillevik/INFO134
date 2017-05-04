@@ -1,9 +1,5 @@
-/*
-* Skrevet av kandidat 141
-*/
-
-
-/**
+/** 
+ * Skrevet av kandidat 141 og 250.
  * Returns a single image url.
  *
  * @return{String} url

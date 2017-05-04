@@ -1,7 +1,4 @@
-// File for listing movies based on 
-// A desired category. The different movie 
-// genres found in the object 
-// are used as categories.
+// Skrevet av kandidat 270 og 250.
 
 // List all movies of a genre specified as a parameter.
 function find_genres(category) {

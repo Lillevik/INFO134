@@ -1,7 +1,6 @@
 /**
- * Skrevet av kanditat 141.
+ * Skrevet av kanditat 141 og 250.
  */
-
 
 //An array containing movie object from the last search
 var currentResults = []

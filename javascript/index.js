@@ -1,8 +1,5 @@
 /**
- * Skrevet av kanditat 141.
- */
-
-/**
+ * Skrevet av kandidat 141 og 250.
  * This function appends the users specific
  * elements to the containers on the indes page.
  * @param  {Element} parent The parent container
