@@ -1,0 +1,40 @@
+#stars {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	text-align: center;
+}
+#stars > span {
+	display: inline-block;
+	position: relative;
+	width: 1.1em;
+}
+.star{
+	 font-size: 24px;
+ }
+#stars > span:hover,
+#stars > span:hover ~ span {
+	color: transparent;
+}
+#stars > span:hover:before,
+#stars > span:hover ~ span:before {
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: goldenrod;
+}
+#review_section{
+	width: 50%;
+	margin: auto;
+	padding-top: 20px;
+	justify-content: space-around;
+}
+#review_form{
+	background: white;
+	padding: 10px;
+	border: 1px solid lightblue;
+	border-radius: 5px;
+	display: inline-flex;
+	flex-direction: column;
+	margin: auto;
+	width: 100%;
+}

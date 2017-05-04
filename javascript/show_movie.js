@@ -26,8 +26,11 @@ window.onload = function() {
         iframe.src = 'https://www.youtube.com/embed/' + trailer_url;
         trailer_element.appendChild(iframe);
     } else {
-        trailer_element.innerHTML = "no trailer";
+        trailer_element.innerHTML = "Trailer not available.";
     }
+
+    // Calculate the rating.
+    var rating = get_rating(query_params.id);
     
     var img_url = get_image_url(movie_object.id);
     append_image(img_url);
@@ -36,7 +39,6 @@ window.onload = function() {
     genre_object = genres_object[query_params.id];
     // get the review info (if it exists)
     review_object = reviews_object[query_params.id];
-    
     
     // render page
     var title_element = document.getElementById("otitle");
@@ -48,7 +50,7 @@ window.onload = function() {
     var length_element = document.getElementById("length");
     var summary_element = document.getElementById("summary");
     var genre_element = document.getElementById("genre");
-    var rating_element = document.getElementById("rating")
+    var rating_element = document.getElementById("rating");
 
     // Throw them in there
     title_element.innerHTML = movie_object["otitle"];
@@ -60,6 +62,7 @@ window.onload = function() {
     length_element.innerHTML = movie_object["length"] + " min";
     summary_element.innerHTML = movie_object["description"];
     genre_element.innerHTML = genre_object[0];
+    rating_element.innerHTML = rating;
     
     document.title = movie_object["otitle"];
 };
