@@ -37,6 +37,7 @@ window.onload = function() {
 
     } else {
         trailer_element.innerHTML = "Trailer not available.";
+        trailer_element.style.height = "auto";
     }
 
     // Calculate the rating.

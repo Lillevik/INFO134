@@ -1,3 +1,8 @@
+/*
+* Skrevet av kandidat 141
+*/
+
+
 /**
  * Returns a single image url.
  *

@@ -1,3 +1,7 @@
+/**
+ * Skrevet av kanditat 141.
+ */
+
 last_loans={
 	"1080": {
 		"id": 1080, 
