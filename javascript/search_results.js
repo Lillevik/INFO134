@@ -365,7 +365,7 @@ window.onload = function() {
 	var director = "";
 	var genre = "";
 	var country = "";
-	console.log(Object.keys(query_params).length)
+
 	if (query_params.film_title && Object.keys(query_params).length === 1) {
 		title = query_params.film_title.toLowerCase();
 		results = search_title(title, movies_object);
