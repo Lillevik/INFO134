@@ -1,9 +1,9 @@
-# INFO134
+# INFO134 - Klient Programmering
 
-## Ting som må implementeres:
-### 1 - Rating funksjon (uten funksjonalitet) på 'show_movie.html'
-### 2 - "home" knapper må linke til faktisk home, ikke ut av mappestruktur.
-### 3 - Anmeldelser på show_movie.html mangler.
-### 4 - Styling for sider uten styling.
-####    - show_movie.html
-####    -
+## Modern Web-development using html, css, javascript and REST
+
+INFO134 is a course at The university of bergen which focuses 
+on modern web client development. The course uses javascript,
+html and css to develop responsive and interactive web pages.
+
+The semester group assignment is currently hosted at [https://files.lillevik.pw/INFO134/](https://files.lillevik.pw/INFO134/).
